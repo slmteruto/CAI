@@ -22,6 +22,6 @@
 
 
 
-![OGu_is_cute](.jay/img/ogu.png)
+![OGu_is_cute](jay/img/ogu.png)
 
-<img src=".jay/img/ogu.png" width=50% height=50% title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
+<img src="jay/img/ogu.png" width=50% height=50% title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
