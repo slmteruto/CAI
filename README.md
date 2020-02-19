@@ -46,29 +46,29 @@
 > 이소영(2019), 퍼스널컬러의 톤 유형과 피부색에 따른 조화색의 범주화. 홍익대학교 문화정보정책대학원 석사학위논문.
 
 한국인의 피부색에 맞는 퍼스널컬러 타입을 분류하기 위해 다양한 정량적인 평가를 위한 통계 연구가 진행되었고, 위와 같은 논문들을 참고하여 피부색 측정 부위는 얼굴 중에서도 볼로 한정하였으며, 퍼스널컬러 타입의 분류 기준을 아래와 같이 정하였다.   
-- WARM TONE & COOL TONE   
-기준표 안찍어왔네ㅠ
-- YELLOW BASE & BLUE BASE   
-기준표 안찍어왔네ㅠ
-- S/V classification   
-기준표 안찍어왔네ㅠ
+- 1 Depth. WARM TONE & COOL TONE   
+- 2 Depth. SEASON CLASSIFICATION (Value)   
+- 3 Depth. S/V CLASSIFICATION   
 
-
-depth1|Warm||Cool|
-:---:|:---:|:---:|:---:|:---:
-depth2|Value x.x↑|Value x.x↓|Saturation x.x↑|Saturation x.x↓
-x.x ↑|Summer cool light|Summer cool mute|Spring warm bright|Spring warm light
-x.x ↓|Winter cool bright|Winter cool deep|Autumn warm mute|Autumn warm deep
-
+1 Depth|2 Depth|3 Depth|Hue|V-S|S & V-S
+:---:|:---:|:---:|:---:|:---:|:---:
+WARM|SPRING|BRIGHT|26-206|43.15↑|32.47↑
+WARM|SPRING|LIGHT|26-206|43.15↑|32.47↓
+WARM|AUTHUM|DEEP|26-206|43.15↓|32.47↑
+WARM|AUTHUM|MUTE|26-206|43.15↓|32.47↓
+COOL|SUMMER|LIGHT|0-25, 207-359|47.15↑|60.80↑
+COOL|SUMMER|MUTE|0-25, 207-359|47.15↑|60.80↓
+COOL|WINTER|BRIGHT|0-25, 207-359|47.15↓|23.58↑
+COOL|WIMTER|DEEP|0-25, 207-359|47.15↓|23.58↓
 
 
 ### 얼굴 측색
 - 화이트밸런스 조정 : 희승's blahblah 
 - 얼굴 인식 예시   
 
-Original|White Balance|Resizing|Face Detection|Tone Detection
-:---:|:---:|:---:|:---:|:---:
-<img src="jay/img/original.jpg" height=100>|<img src="jay/img/original.jpg" height=100>|<img src="jay/img/face.png" height=100></img>|<img src="jay/img/final.jpg" height=100></img>|<img src="jay/img/color_sample.png" height=100></img>
+Original|White Balance|Face Detection|Resizing|cheek Detection|Tone Detection
+:---:|:---:|:---:|:---:|:---:|:---:
+<img src="jay/img/original.jpg" height=100>|<img src="jay/img/wb_convert.jpg" height=100>|<img src="jay/img/wb_convert1.jpg" height=100>|<img src="jay/img/wb_convert2.jpg" height=100></img>|<img src="jay/img/wb_convert3.jpg" height=100></img>|<img src="jay/img/wb_convert4_color.jpg" height=100></img>
 
 ### 퍼스널컬러 매칭
 - 명암 / 채도 차이를 기준으로 타입별 퍼스널컬러 매칭 값 조정 내용 설명
