@@ -19,6 +19,9 @@
 #
 #     20/03/04
 #         - pycharm 파일로 작성
+#
+#     20/03/05
+#         - 수학적 오류 수정
 
 
 
@@ -29,8 +32,6 @@
 # 기준값에 따라 분류하기
 
 class Color:
-
-
     person_HSV = []
 
     def color_classifier(self, person_HSV):
@@ -50,7 +51,7 @@ class Color:
                     self.ans = 1
                     # Warm Spring Light
 
-            elif diff <= 43.15:
+            elif diff < 43.15:
                 if self.S >= 32.47:
                     self.ans = 2
                     # Warm Autumn Deep
@@ -58,7 +59,7 @@ class Color:
                     self.ans = 3
                     # Warm Autumn Mute
 
-        elif (self.H >= 0 and self.H <= 25) or (self.H >= 207 and self.H <= 359):
+        elif (self.H >= 0 and self.H < 26) or (self.H > 206 and self.H <= 360):
             if diff >= 47.15:
                 if diff >= 60.80:
                     self.ans = 4
@@ -67,7 +68,7 @@ class Color:
                     self.ans = 5
                     # Cool Summer Mute
 
-            elif diff <= 47.15:
+            elif diff < 47.15:
                 if diff >= 23.58:
                     self.ans = 6
                     # Cool Winter Bright
