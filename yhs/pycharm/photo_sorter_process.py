@@ -1,12 +1,20 @@
+# 얼굴 인식을 통한 사진 분류 (멀티프로세싱)
+# 최초 작성일 : 20/03/04
+# 작성자 : 양희승
+#
+# 작성내용 : 사진 분류기 속도 개선
+
+# 수정내용
+#       20/03/06
+#           코드 수정  main실행 아닐 경우 추가
+
 import cv2 as cv
-import numpy as np
-import matplotlib.pyplot as plt
-from threading import Thread
 import multiprocessing
 import timeit
 
 #########################################################################
-
+start_time = timeit.default_timer()
+print(start_time)
 # 리사이징
 def resizer(img):
     h, w, c = img.shape
@@ -65,27 +73,30 @@ def work(a, b):
         img = cv.imread("../photo/" + file_name + ".JPG")
         photo_sorter(img, file_name)
 
-    #     if i % 100 == 0:
-    #         print(file_name, "까지 완료")
-    #     elif i % 3 == 0:
-    #         print("-", end="")
-    # return 0
-
-#     file_name = "img ("+str(i) + ")"
-#     img = cv.imread("photo/"+file_name+".JPG")
-#     photo_sorter(img, file_name)
-
-#     if i%100 == 0 :
-#         print(file_name, "까지 완료")
-#     elif i%3==0 :
-#         print("-", end="")
-
 ####################################################################
 faceCascade = cv.CascadeClassifier('../data/haarcascade_frontface.xml')
 
 if __name__ == "__main__" :
-    num = int(1000)
-    process_num = 3
+    num = int(30000)
+    process_num = 4
+
+    process = []
+    start_num = 6511
+    end_num = 6511
+
+    for count in get_count(num, process_num):
+        end_num += count
+        print("실행 범위", start_num, "~", end_num)
+        p = multiprocessing.Process(target=work, args=(start_num, end_num))
+        start_num += count
+        process.append(p)
+        p.start()
+
+    for p in process:
+        p.join
+elif __name__ == "photo_sorter_process" :
+    num = int(30000)
+    process_num = 4
 
     process = []
     start_num = 1
@@ -101,3 +112,6 @@ if __name__ == "__main__" :
 
     for p in process:
         p.join
+
+end_time = timeit.default_timer()
+print(end_time)
