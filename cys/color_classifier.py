@@ -22,6 +22,9 @@
 #
 #     20/03/05
 #         - 수학적 오류 수정
+#
+#     20/03/08
+#         - H 범위 수정
 
 
 
@@ -42,7 +45,7 @@ class Color:
 
         color_type = ["WSB", "WSL", "WAD", "WAM", "CSL", "CSM", "CWB", "CWD"]
 
-        if self.H >= 26 and self.H <= 206:
+        if self.H >= 23 and self.H <= 203:
             if diff >= 43.15:
                 if self.S >= 32.47:
                     self.ans = 0
@@ -59,7 +62,7 @@ class Color:
                     self.ans = 3
                     # Warm Autumn Mute
 
-        elif (self.H >= 0 and self.H < 26) or (self.H > 206 and self.H <= 360):
+        elif (self.H >= 0 and self.H < 23) or (self.H > 203 and self.H <= 360):
             if diff >= 47.15:
                 if diff >= 60.80:
                     self.ans = 4
