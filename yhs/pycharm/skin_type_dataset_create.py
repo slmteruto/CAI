@@ -6,13 +6,13 @@
 
 import sys
 import os
-# sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
-# sys.path.append('F:/hs/pythonwork/project/cys')
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
+sys.path.append('F:/hs/pythonwork/project/cys')
 
 import numpy as np
 from sklearn.cluster import KMeans
 import cv2 as cv
-# from cys import color_classifier   # 예스리 임포트
+from cys import color_classifier   # 예스리 임포트
 import color_classifier
 import colour
 import warnings
@@ -186,6 +186,7 @@ def skin_detector(img, file_name):
         temp = np.delete(temp, del_index, 0)
     except ValueError:
         print(file_name, "에러")
+        cv.imwrite("../dataset/value_error/"+file_name+".png", img)
         pass
 
     # 비율 재조정
@@ -202,7 +203,7 @@ def skin_detector(img, file_name):
 
     # RGB변환 후 저장
     bar = cv.cvtColor(bar, cv.COLOR_BGR2RGB)
-    #     cv.imwrite("img/"+file_name+"_test.jpg", bar)
+    #     cv.imwrite("../img/"+file_name+"_test.jpg", bar)
 
     return bar
 
@@ -257,7 +258,7 @@ def color_convert(cheek, file_name):
     bgr_img_avg = cv.cvtColor(img_avg, cv.COLOR_RGB2BGR)
 
     # 저장
-    #     cv.imwrite("img/"+file_name+"_9.jpg", bgr_img_avg)
+    #     cv.imwrite("../img/"+file_name+"_9.jpg", bgr_img_avg)
 
     arr_RGB_color = np.array(RGB_color)
     float_arr_RGB_color = arr_RGB_color / 255
@@ -274,26 +275,27 @@ def color_convert(cheek, file_name):
 
 def save_img(img, file_name, skin_type):
     if skin_type == 0:
-        cv.imwrite("dataset/00/" + file_name + ".png", img)
+        cv.imwrite("../dataset/00/" + file_name + ".png", img)
     elif skin_type == 1:
-        cv.imwrite("dataset/01/" + file_name + ".png", img)
+        cv.imwrite("../dataset/01/" + file_name + ".png", img)
     elif skin_type == 2:
-        cv.imwrite("dataset/02/" + file_name + ".png", img)
+        cv.imwrite("../dataset/02/" + file_name + ".png", img)
     elif skin_type == 3:
-        cv.imwrite("dataset/03/" + file_name + ".png", img)
+        cv.imwrite("../dataset/03/" + file_name + ".png", img)
     elif skin_type == 4:
-        cv.imwrite("dataset/04/" + file_name + ".png", img)
+        cv.imwrite("../dataset/04/" + file_name + ".png", img)
     elif skin_type == 5:
-        cv.imwrite("dataset/05/" + file_name + ".png", img)
+        cv.imwrite("../dataset/05/" + file_name + ".png", img)
     elif skin_type == 6:
-        cv.imwrite("dataset/06/" + file_name + ".png", img)
+        cv.imwrite("../dataset/06/" + file_name + ".png", img)
     elif skin_type == 7:
-        cv.imwrite("dataset/07/" + file_name + ".png", img)
+        cv.imwrite("../dataset/07/" + file_name + ".png", img)
     elif skin_type == -1:
-        cv.imwrite("dataset/error/" + file_name + ".png", img)
+        cv.imwrite("../dataset/error/" + file_name + ".png", img)
+        print("분류오류 : ", file_name)
     else:
-        cv.imwrite("dataset/value_error/" + file_name + ".png", img)
-        print(file_name, " 타입번호 : ", skin_type)
+        cv.imwrite("../dataset/value_error/" + file_name + ".png", img)
+        print("타입오류 : ", file_name, " 타입번호 : ", skin_type)
 
 def get_count(num, p=4):
     lists = []
@@ -309,7 +311,7 @@ def work(start_num, end_num) :
     for i in range(start_num, end_num, 1):
         ## 이미지 로드
         file_name = "img (" + str(i) + ")"
-        img = cv.imread("crop/" + file_name + ".png")
+        img = cv.imread("../crop/" + file_name + ".png")
 
         # 이미지 색 비율 추출
         bar = skin_detector(img, file_name)
@@ -327,7 +329,7 @@ color_type = ["WSB", "WSL", "WAD", "WAM", "CSL", "CSM", "CWB", "CWD"]
 
 if __name__ == "__main__" :
 
-    num = int(0)
+    num = int(1000)
     process_num = 4
 
     process = []
