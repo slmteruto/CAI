@@ -25,18 +25,21 @@ CREATE TABLE IF NOT EXISTS BRAND_RANK(
 
 
 
-CREATE TABLE IF NOT EXISTS PRDT_IMG(
+CREATE TABLE IF NOT EXISTS PRDT_IMAGE(
     PRDT_CODE         VARCHAR(15),
-    PRDT_IMG          BLOB
+    PRDT_IMG_LINK     VARCHAR(100),
+    PRDT_IMG          BLOB,
+    H                 VARCHAR(10),
+    S                 VARCHAR(10),
+    V                 VARCHAR(10)
 );
 
 
 set names utf8;
-CREATE TABLE IF NOT EXISTS FINAL_R_TOP(
+CREATE TABLE IF NOT EXISTS FINAL_TOP(
     PRDT_CODE         VARCHAR(15),
     BRD_CODE          VARCHAR(50),
     PRDT_NAME         VARCHAR(300),
-    PRDT_RANK         VARCHAR(5),
     PRDT_SEX          VARCHAR(2),
     LOAD_DATE       TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
 )default character set utf8;
