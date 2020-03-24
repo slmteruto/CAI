@@ -1,0 +1,240 @@
+﻿<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>CSS</title>
+		<style>
+/* 베이스 폼 */
+		  body {
+			max-width: 700px;
+			margin: auto;
+			/*background-image: url('img/bgImg.png'); /*키키키키키 난리도 아니넼ㅋㅋ*/
+			background-color: rgb(20, 20, 22);
+			background-repeat: no-repeat;
+			backgroud-size: 10% 10%;
+			color: white;
+			font-family: Vernada;
+		  }
+		  footer{
+			position:fixed; 
+			max-width: 700px;
+			margin: auto;
+			bottom:0px; 
+			width:100%; 
+			background: rgb(20,20,22);
+		  }
+		
+/* 폰트 디자인(정렬 등) */
+		  h1  { font-family: Viner Hand ITC;
+				text-align: center; }
+		  h2  { text-align: center; }
+		  p   { text-align: left; }
+		  img { margin: 20px; }
+		  
+/* 레이아웃 */
+		  #jb-header {
+			padding: 10px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 10px;
+			border: 1px solid #bcbcbc;
+		  }
+		  #jb-container {
+			/*width: 740px;*/
+			margin: 0px auto;
+			padding: 0px;
+			border: 0px solid rgb(200,200,200,0.5);
+		  }
+		  #jb-layer {
+			text-align : center;
+			/*width: 700px;*/
+			padding: 15px;
+			margin: 0px auto;
+			margin-bottom: 10px;
+			border: 1px solid #bcbcbc;
+		  }
+		  #jb-wide-contents {
+			/*width: 675px;*/
+			padding: 20px;
+			margin-bottom: 10px;
+			border: 1px solid #bcbcbc;
+		  }
+		  #jb-sidebar1 {
+			width: 200px;
+			padding: 20px;
+			/*margin: 10px;*/
+			float: right;
+			border: 1px solid #bcbcbc;
+		  }
+		  #jb-left-contents {
+			width: 300px;
+			/*width: 160px;*/
+			padding: 20px;
+			margin-right: 0px;
+			margin-bottom: 20px;
+			float: left;
+			border: 1px solid #bcbcbc;
+		  }
+		  #jb-right-contents {
+			width: 300px;
+			/*width: 160px;*/
+			padding: 20px;
+			margin-left: 0px;
+			margin-bottom: 20px;
+			float: right;
+			border: 1px solid #bcbcbc;
+		  }
+		  #jb-content2 {
+			width: 450px;
+			padding: 20px;
+			margin-bottom: 20px;
+			float: left;
+			border: 1px solid #bcbcbc;
+		  }
+		  #jb-footer {
+			clear: both;
+			padding: 10px;
+			border: 1px solid #bcbcbc;
+		  }
+		  
+/* 버튼 디자인 (https://webdir.tistory.com/435)*/
+		  .filebox label {
+			display: inline-block;
+			width: 25%;
+			padding: .5em .75em;
+			margin-bottom: 5px;
+			margin-left: 10px;
+			margin-right: 10px;
+			color: rgb(250,250,250);
+			font-size:inherit;
+			line-height: normal;
+			vertical-align: middle;
+			background-color: rgb(150, 35, 198);
+			cursor: pointer;
+			/*border: 1px solid #ebebeb;*/
+			border-bottom-color: #e2e2e2;
+			border-radius: .25em; /* 테두리 라운딩*/
+		  }
+		  .filebox input[type="file"] { /* 파일 필드 숨기기 */
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip:rect(0,0,0,0);
+			border: 0;
+		  }
+		  .buttonbox label {
+			display: inline-block;
+			width: 30%;
+			height: 20px;
+			padding: .7em .5em;
+			margin-left: -6px;
+			color: #999;
+			text-align: center;
+			font-size:inherit;
+			line-height: normal;
+			vertical-align: middle;
+			backgroud-size: contain;
+			cursor: pointer;
+			border: 0px solid #ebebeb;
+			border-bottom-color: #e2e2e2;
+			/*border-radius: .25em;*/
+		  }
+		  .buttonbox button { /* 파일 필드 숨기기 */
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip:rect(0,0,0,0);
+			border: 0;
+		  }
+		</style>
+	</head>
+	<body>
+		<div id="jb-header">
+			<h1>CAI PROJECT</h1>
+		</div>
+		<div id="jb-container">
+<!-- 타입분류 폼 1 -->
+			<fieldset id="jb-layer">
+				<!-- 사진 선택 & 타입 보기 버튼 넣기-->
+				<div class="filebox">
+					<label for="ex_file">사진선택</label>
+					<input type='file' id='ex_file' name='file'>
+					<label for="ex_file">사진선택</label>
+					<input type='file' id='ex_file' name='file'>
+				</div>
+			
+				
+				<div id="jb-wide-contents">
+					<!--<img src="img/test_img_face.png" alt="img" width=350px height=auto/>-->
+				</div>
+				
+				<div id="jb-wide-contents">
+					<h2>Contents</h2>
+					<p>Manual 1. Eergssv wrgesrh</p>
+					<p>Manual 2. Gdgkpnmdkfg edghrtd srgyrf</p>
+				</div>
+			</fieldset>
+<!-- 타입분류 폼 2 -->
+			<fieldset id="jb-layer">
+				<!-- 얼굴 사진 리사이징 띄우기 -->
+				<div id="jb-wide-contents">
+					<img src="img/origin_crop.jpg" alt="img" width=200px height=auto/>
+				</div>
+				
+				<!-- 얼굴 측색 RGB 받아오기 -->
+				<!-- 퍼스널 컬러 타입 받아오기 -->
+				<div id="jb-wide-contents" style="background-color:rgb(245, 215, 200)">
+					<hr color="white" height="3" />
+					<h2 style="letter-spacing:4px">WARM SPRING BRIGHT</h2>
+					<hr color="white" height="3" />
+				</div>
+				
+				<!-- 머신러닝 정확도 (or) 랜덤함수로 퍼센티지 갖고 오기 -->
+				<p style="background-color: rgb(20,20,22)"><font size=2 >오늘 당신의 퍼스널 컬러 타입은 XX.X%로 'Warm Spring Bright' 입니다.</font></p>
+			</fieldset>
+				
+			
+			
+			
+<!-- 팔레트 폼 -->
+			
+			<fieldset id="jb-layer">
+				<div id="jb-left-contents">
+					<h2>Sidebar</h2>
+					<p>Lorem</p>
+					<p>Ipsum</p>
+					<p>Dolor</p>
+				</div>
+				<div id="jb-left-contents">
+					<h2>Sidebar</h2>
+					<p>Lorem</p>
+					<p>Ipsum</p>
+					<p>Dolor</p>
+				</div>
+			</fieldset>
+			
+			
+			<footer>
+				<div class="buttonbox" style="background-image: url(img/bgImg.png)">
+					<label for="button_1">퍼스널</label>
+					<button id='button_1' onclick="window.location.href='https://ojji.wayful.com'" ></button>
+					
+					<label for="button_2">팔레트</label>
+					<button id='button_2' class="button1 white selected" onfocus="this.blur();"></button>
+					
+					<label for="button_3">무신사</label>
+					<button id='button_3' class="button1 white selected" onfocus="this.blur();"></button>
+				</div>
+				<!--<div id="jb-footer">
+					<p>Copyright</p>
+				</div>-->
+			</footer>
+		</div>
+	</body>
+</html>
