@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<style type="text/css">
+    html, body {
+        width: 100%; height: 100%;
+    }
+    div.total{
+        width : 80%;
+        height : 100%;
+        margin-left : 10%;
+<!--        border : 1px solid black;-->
+    }
+
+    div.text{
+        margin-left:auto;
+        margin-right:auto;
+        width : 50%;
+        text-align : center;
+        vertical-align : middle;
+        font-size : x-large;
+<!--        border : 1px solid black-->
+    }
+
+    div.upload{
+        text-align : center;
+        vertical-align : middle;
+<!--        border : 1px solid black;-->
+    }
+
+    div.upload_func{
+        margin: auto;
+        width : 50%;
+        padding-left : 5%;
+        text-align : left;
+        vertical-align : middle;
+<!--        border : 1px solid black-->
+    }
+
+    div.img_text{
+        width : 50%;
+        margin-left : auto;
+        margin-right : auto;
+<!--        border :1px solid black;-->
+    }
+    div.img_file{
+        width : 50%;
+        margin-left : auto;
+        margin-right : auto;
+<!--        border : 1px solid black;-->
+    }
+
+    .img_file img {
+        width : 100%;
+        height : 100%;
+    }
+
+    div.type_button{
+        text-align : center;
+        width : 50%;
+        margin-left : auto;
+        margin-right : auto;
+<!--        border : 1px solid black;-->
+    }
+
+    button.button1 white selected{
+        margin-left : auto;
+        margin-right : auto;
+    }
+
+    div.total_type {
+        margin-top : 100px;
+        margin-left : auto;
+        margin-right : auto;
+<!--        border : 1px solid black;-->
+    }
+    .total_type div {
+        width: 50%;
+        margin-left : auto;
+        margin-right : auto;
+<!--        border : 1px solid black;-->
+    }
+
+    .type_text {
+        font-size : 20px
+    }
+
+    div.total_recommend{
+        width : 90%
+        margin-left : auto;
+        margin-right : auto;
+<!--        border : 1px solid black;-->
+    }
+
+    .recommend_text {
+        width : 50%;
+        margin-left : auto;
+        margin-right : auto;
+<!--        border : 1px solid black;-->
+    }
+    .color_form {
+        display : flex;
+        width : 95%;
+        margin-left : auto;
+        margin-right : auto;
+<!--        border : 1px solid black-->
+    }
+    .recommend_color {
+
+        width : 19%;
+        height: 120px;
+        margin-left : auto;
+        margin-right : auto;
+<!--        border : 1px solid red;-->
+    }
+</style>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CAI project</title>
+    </head>
+    <body>
+        <div class="total">
+            <div class="text">
+                CAI 프로젝트<br>
+            </div>
+            <div>
+
+            </div>
+            <!--{{testDataHtml}} -->
+            <div class="upload">
+                이미지 업로드<br>
+                <div class="upload_func">
+                    <input type='file' id='file' name='file' /><br>
+                    <button id='btn-upload' class="button1 white selected" onfocus="this.blur();">사진 업로드</button>
+                </div>
+
+            </div>
+            <div class="upload_img">
+                <div class="img_text">업로드한 사진</div>
+                <div class="img_file">
+                    <!--<img src="img/origin.jpg" alt="img">-->
+                    <img src="{{url_for('static', filename='img/origin.jpg')}}" alt="img">
+
+                </div>
+            </div>
+
+
+            <div class="type_button">
+                 <button id='btn-upload' class="button1 white selected" onfocus="this.blur();">타입 보기</button>
+            </div>
+
+            <div class="total_type">
+                <div class="type_text">타입</div>
+                <div class="type_result"> 당신의 타입은 겨울 쿨 light 입니다.</div>
+            </div>
+
+            <div class="total_recommend">
+                <div class="recommend_text">추천 색상</div>
+                <div class="color_form">
+                    <div class="recommend_color" style="background-color:#1A4563">#1A4563</div>
+                    <div class="recommend_color" style="background-color:#5BA397">#5BA397</div>
+                    <div class="recommend_color" style="background-color:#2D3A7D">#2D3A7D</div>
+                    <div class="recommend_color" style="background-color:#10633A">#10633A</div>
+                    <div class="recommend_color" style="background-color:#63103A">#63103A</div>
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>
