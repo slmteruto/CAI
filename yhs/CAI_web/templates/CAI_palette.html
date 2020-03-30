@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>CAI Project</title>
+		<style>
+/* 베이스 폼 */
+		  html {
+			background-color: rgb(200, 200, 200);
+		  }
+		  body {
+			width: 1080px;
+			background-color: rgb(20, 20, 22);
+			background-repeat: no-repeat;
+			color: white;
+			font-family: Vernada;
+			font-size: 215%;
+		  }
+		  footer{
+			position:fixed; 
+			max-width: 1080px;
+			margin: auto;
+			bottom:0px; 
+			width:100%;
+		  }
+		
+/* 폰트 디자인(정렬 등) */
+		  h1  { font-family: Viner Hand ITC;
+				text-align: center; }
+		  h2  { text-align: center; }
+		  h5  { text-align: left; }
+		  h6  { font-size: 50%;
+				text-align: left; }
+		  p   { text-align: left; }
+		  img { margin: 7%; }
+		  
+/* 레이아웃 */
+		  #jb-header {
+			background-color: rgb(40,40,44);
+			padding: 0px;
+			padding-top: 1%;
+			padding-bottom: .1%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 3%;
+			border: .5px solid rgb(20,20,22,0);
+		  }
+		  #jb-container {
+			margin: auto;
+			padding: 0;
+		  }
+		  #jb-layer {
+			text-align : center;
+			padding: 3%;
+			margin: 0px auto;
+			margin-bottom: 1%;
+			border: .5px solid rgb(20,20,22,0);
+		  }
+		  #jb-wide-contents {
+			padding: 3%;
+			margin-bottom: 1%;
+			border: .5px solid rgb(20,20,22,0);
+		  }
+		  #jb-wide-contents p{
+			padding-left:10%;
+			padding-right:10%;
+			margin-top: 5%;
+			margin-bottom: 5%;
+		  }
+		  #jb-sidebar1 {
+			width: 200px;
+			padding: 20px;
+			/*margin: 10px;*/
+			float: right;
+			border: .5px solid rgb(20,20,22,0);
+		  }
+		  #jb-left-contents {
+			width: 300px;
+			/*width: 160px;*/
+			padding: 20px;
+			margin-right: 0px;
+			margin-bottom: 20px;
+			float: left;
+			border: .5px solid #bcbcbc;
+		  }
+		  #jb-right-contents {
+			width: 300px;
+			/*width: 160px;*/
+			padding: 20px;
+			margin-left: 0px;
+			margin-bottom: 20px;
+			float: right;
+			border: .5px solid #bcbcbc;
+		  }
+		  #jb-content2 {
+			width: 450px;
+			padding: 20px;
+			margin-bottom: 20px;
+			float: left;
+			border: .5px solid #bcbcbc;
+		  }
+		  
+		  
+/* 팔레트 레이아웃 */
+		  .palette_layout {
+			display: flex;
+			height: 185px;
+			padding: 0px;
+			padding-left: 0px;
+			padding-right: 0px;
+			margin-left : auto;
+			margin-right : auto;
+			margin-top: 0px;
+			margin-bottom: 20px;
+		  }
+		  .palette_color {
+			display: inline;
+			width : 11%;
+			/*height: 200%;*/
+			margin-left : auto;
+			margin-right : auto;
+			vertical-align: text-bottom;
+			border: 10px solid rgb(250, 250, 250);
+		  }
+		  .palette_color h6 {
+			display: inline-block;
+			width: 100%;
+			float: left;
+			padding-top: 5%;
+			padding-bottom: 5%;
+			margin: auto;
+			margin-top: -3px;
+			/*margin-left: -0.5%;*/
+			text-align: left;
+		  }
+		  
+/* 버튼 디자인 (https://webdir.tistory.com/435)*/
+		  .filebox label {
+			display: inline-block;
+			width: 25%;
+			height: 25%;
+			padding: .5em .75em;
+			margin-bottom: 5px;
+			margin-left: 2%;
+			margin-right: 2%;
+			font-size:inherit;
+			line-height: normal;
+			vertical-align: middle;
+			background-color: rgb(150, 35, 198);
+			cursor: pointer;
+			border-radius: .25em; /* 테두리 라운딩*/
+		  }
+		  .filebox input[type="file"] { /* 파일 필드 숨기기 */
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip:rect(0,0,0,0);
+		  }
+		  .filebox input[type="button"] { /* 파일 필드 숨기기 */
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			overflow: hidden;
+			clip:rect(0,0,0,0);
+			border: 0;
+		  }
+		  .buttonbox label {
+			display: inline-block;
+			width: 30.6%;
+			height: 60px;
+			padding: .7em .5em;
+			margin: -1px;
+			margin-left: -0.6%;
+			margin-right: -0.6%;
+			text-align: center;
+			font-size: 100%;
+			line-height: normal;
+			vertical-align: middle;
+			cursor: pointer;
+		  }
+		  .buttonbox button { /* 파일 필드 숨기기 */
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: auto;
+			overflow: hidden;
+			clip:rect(0,0,0,0);
+			border: 0px;
+		  }
+
+
+/* 레이아웃 겹치게 테스트 */
+		  .personal_layout {
+			display: inline;
+			padding: 0px;
+			padding-left: 5px;
+			padding-right: 5px;
+			margin-left : auto;
+			margin-right : auto;
+			margin-top: 0;
+			margin-bottom: 0;
+		  }
+		  .personal_layout img {
+			width: 50%;
+			padding-top: 0;
+			padding-bottom: 0;
+			margin: auto;
+			margin-top: -8px;
+			/*border: 0.5px solid rgb(250,250,250);*/
+		  }
+
+/* 닉네임 받아오기 ? http://tcpschool.com/javascript/js_bom_dialogBox */
+		</style>
+	</head>
+	<body>
+		<div id="jb-header">
+			<h1>CAI PROJECT</h1>
+		</div>
+		<div id="jb-container">
+<!-- 팔레트 폼 -->
+			
+			<fieldset id="jb-layer">
+				<div id="jb-wide-contents">
+					<div class="filebox">
+						<label for="bt_male">남자</label>
+						<input type="button" id='bt_male' name="Male"/>
+						<label for="bt_female">여자</label>
+						<input type="button" id='bt_female' name="Female"/>
+						<p></br></p>
+					</div>
+					
+					<div class="personal_layout">
+						<!-- 얼굴 측색 RGB 받아오기 -->
+						<img src="img/personal-test-top.png" style="background-color:rgb(245, 215, 200)"/>
+						<!-- 클릭한 팔레트의 색 받아오기 -->
+						<img src="img/personal-test-bottom.png" style="background-color:rgb(20, 20, 40)"/>
+					</div>
+				</div>
+				<div id="jb-wide-contents">
+					<div id="jb-wide-contents" style="margin-bottom: -1%; margin-top:-2%;">
+					- Bright Palette -</div>
+					<div class="palette_layout">
+						<div class="palette_color" style="background-color:rgb(15,65,69)">
+							<h6 style="background-color:rgb(250,250,250)">
+								<font color=black>RGB</br>15, 65, 69</font>
+							</h6>
+						</div>
+						<div class="palette_color" style="background-color:rgb(174,158,235)">
+							<h6 style="background-color:rgb(250,250,250)">
+								<font color=black>RGB</br>174, 158, 235</font>
+							</h6>
+						</div>
+						<div class="palette_color" style="background-color:rgb(69,35,24)">
+							<h6 style="background-color:rgb(250,250,250)">
+								<font color=black>RGB</br>69, 35, 24</font>
+							</h6>
+						</div>
+						<div class="palette_color" style="background-color:rgb(254,66,69)">
+							<h6 style="background-color:rgb(250,250,250)">
+								<font color=black>RGB</br>254, 66, 69</font>
+							</h6>
+						</div>
+						<div class="palette_color" style="background-color:rgb(136,186,69)">
+							<h6 style="background-color:rgb(250,250,250)">
+								<font color=black>RGB</br>136, 186, 69</font>
+							</h6>
+						</div>
+						<div class="palette_color" style="background-color:rgb(194,211,69)">
+							<h6 style="background-color:rgb(250,250,250)">
+								<font color=black>RGB</br>194, 211, 69</font>
+							</h6>
+						</div>
+					</div>
+				
+				
+					<div id="jb-wide-contents" style="margin-bottom: -1%; margin-top:-3%;">
+					- Harmony Palette -</div>
+					<div class="palette_layout">
+						<div class="palette_color" style="background-color:rgb(15,65,69)">
+							<h6 style="background-color:rgb(250,250,250)">
+								<font color=black>RGB</br>15, 65, 69</font>
+							</h6>
+						</div>
+						<div class="palette_color" style="background-color:rgb(174,158,235)">
+							<h6 style="background-color:rgb(250,250,250)">
+								<font color=black>RGB</br>174, 158, 235</font>
+							</h6>
+						</div>
+						<div class="palette_color" style="background-color:rgb(69,35,24)">
+							<h6 style="background-color:rgb(250,250,250)">
+								<font color=black>RGB</br>69, 35, 24</font>
+							</h6>
+						</div>
+						<div class="palette_color" style="background-color:rgb(254,66,69)">
+							<h6 style="background-color:rgb(250,250,250)">
+								<font color=black>RGB</br>254, 66, 69</font>
+							</h6>
+						</div>
+						<div class="palette_color" style="background-color:rgb(136,186,69)">
+							<h6 style="background-color:rgb(250,250,250)">
+								<font color=black>RGB</br>136, 186, 69</font>
+							</h6>
+						</div>
+						<div class="palette_color" style="background-color:rgb(194,211,69)">
+							<h6 style="background-color:rgb(250,250,250)">
+								<font color=black>RGB</br>194, 211, 69</font>
+							</h6>
+						</div>
+					</div>
+					</br>
+				</div>
+
+			</fieldset>
+			
+			
+			
+			
+			
+			
+			
+			<footer>
+				<div class="buttonbox">
+					<label for="button_1" style="background-color:rgb(40,40,44);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>
+					<button id='button_1' onclick="window.location.href='https://ojji.wayful.com'" ></button>
+					
+					<label for="button_2" style="background-color:rgb(40,40,44);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>
+					<button id='button_2' class="button1 white selected" onfocus="this.blur();"></button>
+					
+					<label for="button_3" style="background-color:rgb(40,40,44);background-image: url(img/icon-clothes-80-2.png);background-repeat:no-repeat;background-position: center;"></label>
+					<button id='button_3' class="button1 white selected" onfocus="this.blur();"></button>
+					<!--
+					<label for="button_1" style="background-image: url(img/bgImg.png)">퍼스널</label>
+					<button id='button_1' onclick="window.location.href='https://ojji.wayful.com'" ></button>
+					
+					<label for="button_2" style="background-image: url(img/bgImg.png)">팔레트</label>
+					<button id='button_2' class="button1 white selected" onfocus="this.blur();"></button>
+					
+					<label for="button_3" style="background-image: url(img/bgImg.png)">무신사</label>
+					<button id='button_3' class="button1 white selected" onfocus="this.blur();"></button>
+					-->
+				</div>
+				<!--<div id="jb-footer">
+					<p>Copyright</p>
+				</div>-->
+			</footer>
+
+		</div>
+	</body>
+</html>
