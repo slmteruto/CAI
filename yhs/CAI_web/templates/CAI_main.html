@@ -1,18 +1,11 @@
 ﻿<!doctype html>
-<!-- html, css Author : jay-->
-<!-- 코드 작성 : yhs -->
 <html lang="ko">
 	<head>
 		<meta charset="utf-8">
 		<title>CAI Project</title>
 		<style>
-<!--/* 베이스 폼 */-->
-		  html {
-			background-color: rgb(200, 200, 200);
-		  }
+/* 베이스 폼 */
 		  body {
-			width: 1080px;
-			height: 1920px;
 			background-color: rgb(20, 20, 22);
 			background-repeat: no-repeat;
 			color: white;
@@ -21,13 +14,12 @@
 		  }
 		  footer{
 			position:fixed; 
-			max-width: 1080px;
 			margin: auto;
 			bottom:0px; 
 			width:100%;
 		  }
 		
-<!--/* 폰트 디자인(정렬 등) */-->
+/* 폰트 디자인(정렬 등) */
 		  h1  { font-family: Viner Hand ITC;
 				text-align: center; }
 		  h2  { text-align: center; }
@@ -37,7 +29,7 @@
 		  p   { text-align: left; }
 		  img { margin: 7%; }
 		  
-<!--/* 레이아웃 */-->
+/* 레이아웃 */
 		  #jb-header {
 			background-color: rgb(40,40,44);
 			padding: 0px;
@@ -102,7 +94,7 @@
 		  }
 		  
 		  
-<!--/* 팔레트 레이아웃 */-->
+/* 팔레트 레이아웃 */
 		  .palette_layout {
 			display: flex;
 			height: 185px;
@@ -134,13 +126,14 @@
 			text-align: left;
 		  }
 		  
-<!--/* 버튼 디자인 (https://webdir.tistory.com/435)*/-->
+/* 버튼 디자인 (https://webdir.tistory.com/435)*/
 		  .filebox label {
 			display: inline-block;
 			width: 25%;
 			height: 25%;
 			padding: .5em .75em;
-			margin-bottom: 5px;
+			margin-top: -3%;
+			margin-bottom: 0;
 			margin-left: 2%;
 			margin-right: 2%;
 			font-size:inherit;
@@ -150,7 +143,7 @@
 			cursor: pointer;
 			border-radius: .25em; /* 테두리 라운딩*/
 		  }
-		  .filebox input[type="file"] {
+		  .filebox input[type="file"] { /* 파일 필드 숨기기 */
 			position: absolute;
 			width: 1px;
 			height: 1px;
@@ -159,7 +152,7 @@
 			overflow: hidden;
 			clip:rect(0,0,0,0);
 		  }
-		  .filebox input[type="button"] {
+		  .filebox input[type="button"] { /* 파일 필드 숨기기 */
 			position: absolute;
 			width: 1px;
 			height: 1px;
@@ -171,7 +164,7 @@
 		  .buttonbox label {
 			display: inline-block;
 			width: 30.6%;
-			height: 60px;
+			height: 55px;
 			padding: .7em .5em;
 			margin: -1px;
 			margin-left: -0.6%;
@@ -181,8 +174,11 @@
 			line-height: normal;
 			vertical-align: middle;
 			cursor: pointer;
+			background-color:rgb(40,40,44);
+			background-repeat:no-repeat;
+			background-position: center;
 		  }
-		  .buttonbox button {
+		  .buttonbox button { /* 파일 필드 숨기기 */
 			position: absolute;
 			width: 1px;
 			height: 1px;
@@ -194,7 +190,7 @@
 		  }
 
 
-<!--/* 레이아웃 겹치게 테스트 */
+/* 레이아웃 겹치게 테스트 */
 		  .personal_layout {
 			display: inline;
 			padding: 0px;
@@ -212,40 +208,12 @@
 			margin: auto;
 			margin-top: -8px;
 			/*border: 0.5px solid rgb(250,250,250);*/
-		  }-->
+		  }
 
+/* 닉네임 받아오기 ? http://tcpschool.com/javascript/js_bom_dialogBox */
 		</style>
-<!--		<script type="text/javascript">-->
-<!--			alert('test');-->
-<!--			function typeSubmit(){-->
-<!--				alert("클릭은됨?");-->
-<!--				if(document.getElementById("ex_file".value == ""){-->
-<!--					alert("");-->
-<!--				} else {-->
-<!--					document.img_type_submit.submit();-->
-<!--				}-->
-<!--			}-->
-
-<!--			function readURL(input){-->
-<!--				if(input.files && input.files[0] {-->
-<!--					var reader = new FileReader();-->
-<!--					reader.onload = function(e) {-->
-<!--						$('#image_section').attr('src', e.target.result);-->
-<!--					}-->
-<!--					reader.readAsDataURL(input.files[0]);-->
-<!--				}-->
-<!--			}-->
-
-<!--			$("#imgInput").change(function(){-->
-<!--				readURL(this);-->
-<!--			});-->
-
-
-<!--		</script>-->
-		<script type="text/javascript" src="{{ url_for('static', filename='js/mainSc.js') }}"></script>
 	</head>
 	<body>
-
 		<div id="jb-header">
 			<h1>CAI PROJECT</h1>
 		</div>
@@ -253,61 +221,61 @@
 			<fieldset id="jb-layer">
 				<!-- 사진 선택 & 타입 보기 버튼 넣기-->
 				<div id="jb-wide-contents">
-					<div class="filebox">
-
-						<form name = "img_type_summary" id="file_form" action = "http://192.168.0.9:8080/upload" method = "POST" enctype="multipart/form-data">
+					<form name = "img_type_summary" id="file_form" action = "http://192.168.0.9:8080/upload" method = "POST" enctype="multipart/form-data">
+						<div class="filebox">
 							<label for="ex_file">사진선택</label>
-							<input type='file' id='ex_file' name='file'/>
+							<input type='file' id='ex_file' name='file' onchange="readURL(this);"/>
 							<label for="show_type">타입보기</label>
 							<input type="button" id='show_type' name="show_type" onclick="typeSubmit()"/>
-							<img id="image_section" src="#" alt="your image"/>
-						</form>
-					</div>
-				</div>
-				
-				</br>
-				<div id="jb-wide-contents">
-<!--					<img src="img/test_img_face.png" alt="img" width=50% height=auto/>-->
-					<img src="{{url_for('static', filename='img/test_img_face.png')}}" alt="img" width=50% height=auto/>
-						<h2>Guide</h2>
+						</div>
+						
+						<h2 style="margin-bottom: -1%;">Guide</h2>
 						<p>
 						1. 흰색 배경의 형광등 아래에서 찍은 사진</br>
 						2. 안경 등으로 얼굴이 가려지지 않은 사진 권장</br>
 						3. 주의 사항</br>
-						</p>
+						</p>						
+					</form>
+					
+					<!-- 얼굴 사진 리사이징 띄우기
+					<img id="image_section" src="#" alt="img" style="width:60%; height: auto;"/>
+					-->
+					<img id="image_section" src="img/origin_crop.jpg" alt="img" style="width:60%; height: auto;"/>
+					
+				
+					<!-- 얼굴 측색 RGB 받아오기 -->
+					<!-- 퍼스널 컬러 타입 받아오기 -->
+					<div id="jb-wide-contents" style="background-color:rgb(245, 215, 200)">
+						<hr color="white" size=5 style="margin-top: -.5%;"/>
+						<h2 style="letter-spacing:4px">WARM SPRING BRIGHT</h2>
+						<hr color="white" size=5 style="margin-bottom: -.5%;"/>
+					</div>
+					
+					<!-- 머신러닝 정확도 (or) 랜덤함수로 퍼센티지 갖고 오기 -->
+					</br>
+					당신의 피부 측색 결과 <b>XX.X% 정확도로</b></br>
+					<font style="font-size: 120%;"><b>'Warm Spring Bright'</b></font> 입니다.</br>
 				</div>
+
 			</fieldset>
 			
 
 			
-			<footer>
-				<div class="buttonbox">
-<!--					<label for="button_1" style="background-color:rgb(40,40,44);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
-					<label for="button_1" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-face-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
-					<button id='button_1' onclick="window.location.href='https://naver.com'" ></button>
-					
-<!--					<label for="button_2" style="background-color:rgb(40,40,44);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
-					<label for="button_2" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-palette-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
-					<button id='button_2' class="button1 white selected" onfocus="this.blur();"></button>
-					
-<!--					<label for="button_3" style="background-color:rgb(40,40,44);background-image: url(img/icon-clothes-80-2.png);background-repeat:no-repeat;background-position: center;"></label>-->
-					<label for="button_3" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-clothes-80-2.png')}});background-repeat:no-repeat;background-position: center;"></label>
-					<button id='button_3' class="button1 white selected" onfocus="this.blur();"></button>
-					<!--
-					<label for="button_1" style="background-image: url(img/bgImg.png)">퍼스널</label>
-					<button id='button_1' onclick="window.location.href='https://ojji.wayful.com'" ></button>
-					
-					<label for="button_2" style="background-image: url(img/bgImg.png)">팔레트</label>
-					<button id='button_2' class="button1 white selected" onfocus="this.blur();"></button>
-					
-					<label for="button_3" style="background-image: url(img/bgImg.png)">무신사</label>
-					<button id='button_3' class="button1 white selected" onfocus="this.blur();"></button>
-					-->
-				</div>
-				<!--<div id="jb-footer">
-					<p>Copyright</p>
-				</div>-->
-			</footer>
+         <footer>
+            <div class="buttonbox">
+               <label for="button_1" style="background-color:rgb(20,20,22);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>
+<!--               <label for="button_1" style="background-color:rgb(20,20,22);background-image: url({{url_for('static', filename='img/icon-face-80.png')}});background-repeat:no-repeat;background-position: center;"></label>-->
+               <button id='button_1' onclick="window.location.href='192.168.0.9:8080/main'" ></button>
+               
+               <label for="button_2" style="background-color:rgb(40,40,44);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>
+<!--               <label for="button_2" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-palette-80.png')}});background-repeat:no-repeat;background-position: center;"></label>-->
+               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.9:8080/color_recommnd'"></button>
+               
+               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url(img/icon-clothes-80-2.png);background-repeat:no-repeat;background-position: center;"></label>
+<!--               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-clothes-80-2.png')}});background-repeat:no-repeat;background-position: center;"></label>-->
+               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.9:8080/musinsa_recommnd'"></button>
+            </div>
+         </footer>
 
 		</div>
 	</body>
