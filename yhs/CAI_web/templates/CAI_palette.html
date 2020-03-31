@@ -2,14 +2,10 @@
 <html lang="ko">
 	<head>
 		<meta charset="utf-8">
-		<title>CAI Project</title>
+		<title>CAI Project - palette</title>
 		<style>
 /* 베이스 폼 */
-		  html {
-			background-color: rgb(200, 200, 200);
-		  }
 		  body {
-			width: 1080px;
 			background-color: rgb(20, 20, 22);
 			background-repeat: no-repeat;
 			color: white;
@@ -18,7 +14,6 @@
 		  }
 		  footer{
 			position:fixed; 
-			max-width: 1080px;
 			margin: auto;
 			bottom:0px; 
 			width:100%;
@@ -30,6 +25,7 @@
 		  h2  { text-align: center; }
 		  h5  { text-align: left; }
 		  h6  { font-size: 50%;
+				letter-spacing: -.6px;
 				text-align: left; }
 		  p   { text-align: left; }
 		  img { margin: 7%; }
@@ -104,7 +100,7 @@
 /* 팔레트 레이아웃 */
 		  .palette_layout {
 			display: flex;
-			height: 185px;
+			height: 200px;
 			padding: 0px;
 			padding-left: 0px;
 			padding-right: 0px;
@@ -115,12 +111,11 @@
 		  }
 		  .palette_color {
 			display: inline;
-			width : 11%;
-			/*height: 200%;*/
+			width : 13.5%;
 			margin-left : auto;
 			margin-right : auto;
 			vertical-align: text-bottom;
-			border: 10px solid rgb(250, 250, 250);
+			border: 7px solid rgb(250, 250, 250);
 		  }
 		  .palette_color h6 {
 			display: inline-block;
@@ -140,7 +135,8 @@
 			width: 25%;
 			height: 25%;
 			padding: .5em .75em;
-			margin-bottom: 5px;
+			margin-top: -3%;
+			margin-bottom: 0;
 			margin-left: 2%;
 			margin-right: 2%;
 			font-size:inherit;
@@ -170,7 +166,7 @@
 		  }
 		  .buttonbox label {
 			display: inline-block;
-			width: 30.6%;
+			width: 30.3%;
 			height: 60px;
 			padding: .7em .5em;
 			margin: -1px;
@@ -214,7 +210,6 @@
 			/*border: 0.5px solid rgb(250,250,250);*/
 		  }
 
-/* 닉네임 받아오기 ? http://tcpschool.com/javascript/js_bom_dialogBox */
 		</style>
 	</head>
 	<body>
@@ -231,15 +226,27 @@
 						<input type="button" id='bt_male' name="Male"/>
 						<label for="bt_female">여자</label>
 						<input type="button" id='bt_female' name="Female"/>
-						<p></br></p>
+						<p></p>
 					</div>
 					
-					<div class="personal_layout">
+					
+					<div class="personal_layout" id="model_m" style="display:block; margin-top: 7%;">
+<!--					<div class="personal_layout" id="model_m" style="display:none; margin-top: 7%;">-->
+						<!-- 얼굴 측색 RGB 받아오기 -->
+						<img src="img/personal-test-top_m.png" style="background-color:rgb(245, 215, 200)"/>
+						<!-- 클릭한 팔레트의 색 받아오기 -->
+						<img src="img/personal-test-bottom_m.png" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>
+					</div>
+					
+<!--					<div class="personal_layout" id="model_w" style="display:block; margin-top: 7%;">-->
+					<div class="personal_layout" id="model_w" style="display:none; margin-top: 7%;">
 						<!-- 얼굴 측색 RGB 받아오기 -->
 						<img src="img/personal-test-top.png" style="background-color:rgb(245, 215, 200)"/>
 						<!-- 클릭한 팔레트의 색 받아오기 -->
-						<img src="img/personal-test-bottom.png" style="background-color:rgb(20, 20, 40)"/>
+						<img src="img/personal-test-bottom.png" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>
 					</div>
+					
+					
 				</div>
 				<div id="jb-wide-contents">
 					<div id="jb-wide-contents" style="margin-bottom: -1%; margin-top:-2%;">
@@ -318,36 +325,21 @@
 			</fieldset>
 			
 			
-			
-			
-			
-			
-			
-			<footer>
-				<div class="buttonbox">
-					<label for="button_1" style="background-color:rgb(40,40,44);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>
-					<button id='button_1' onclick="window.location.href='https://ojji.wayful.com'" ></button>
-					
-					<label for="button_2" style="background-color:rgb(40,40,44);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>
-					<button id='button_2' class="button1 white selected" onfocus="this.blur();"></button>
-					
-					<label for="button_3" style="background-color:rgb(40,40,44);background-image: url(img/icon-clothes-80-2.png);background-repeat:no-repeat;background-position: center;"></label>
-					<button id='button_3' class="button1 white selected" onfocus="this.blur();"></button>
-					<!--
-					<label for="button_1" style="background-image: url(img/bgImg.png)">퍼스널</label>
-					<button id='button_1' onclick="window.location.href='https://ojji.wayful.com'" ></button>
-					
-					<label for="button_2" style="background-image: url(img/bgImg.png)">팔레트</label>
-					<button id='button_2' class="button1 white selected" onfocus="this.blur();"></button>
-					
-					<label for="button_3" style="background-image: url(img/bgImg.png)">무신사</label>
-					<button id='button_3' class="button1 white selected" onfocus="this.blur();"></button>
-					-->
-				</div>
-				<!--<div id="jb-footer">
-					<p>Copyright</p>
-				</div>-->
-			</footer>
+         <footer>
+            <div class="buttonbox">
+               <label for="button_1" style="background-color:rgb(40,40,44);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>
+<!--               <label for="button_1" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-face-80.png')}});background-repeat:no-repeat;background-position: center;"></label>-->
+               <button id='button_1' onclick="window.location.href='192.168.0.9:8080/main'" ></button>
+               
+               <label for="button_2" style="background-color:rgb(20,20,22);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>
+<!--               <label for="button_2" style="background-color:rgb(20,20,22);background-image: url({{url_for('static', filename='img/icon-palette-80.png')}});background-repeat:no-repeat;background-position: center;"></label>-->
+               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.9:8080/color_recommnd'"></button>
+               
+               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url(img/icon-clothes-80-2.png);background-repeat:no-repeat;background-position: center;"></label>
+<!--               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-clothes-80-2.png')}});background-repeat:no-repeat;background-position: center;"></label>-->
+               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.9:8080/musinsa_recommnd'"></button>
+            </div>
+         </footer>
 
 		</div>
 	</body>
