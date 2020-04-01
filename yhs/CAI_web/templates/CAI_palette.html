@@ -13,25 +13,27 @@
 			font-size: 215%;
 		  }
 		  footer{
-			position:fixed; 
+			position:fixed;
 			margin: auto;
-			bottom:0px; 
+			bottom:0px;
 			width:100%;
 		  }
-		
+
 /* 폰트 디자인(정렬 등) */
 		  h1  { font-family: Viner Hand ITC;
 				text-align: center; }
 		  h2  { text-align: center; }
 		  h5  { text-align: left; }
 		  h6  { font-size: 50%;
-				letter-spacing: -.6px;
 				text-align: left; }
 		  p   { text-align: left; }
 		  img { margin: 7%; }
-		  
+
 /* 레이아웃 */
 		  #jb-header {
+		    position: fixed;
+			top: 0px;
+			width: 100%;
 			background-color: rgb(40,40,44);
 			padding: 0px;
 			padding-top: 1%;
@@ -42,6 +44,9 @@
 			border: .5px solid rgb(20,20,22,0);
 		  }
 		  #jb-container {
+		    position: absolute;
+		    top: 250px;
+		    width: 100%;
 			margin: auto;
 			padding: 0;
 		  }
@@ -133,12 +138,12 @@
 		  .filebox label {
 			display: inline-block;
 			width: 25%;
-			height: 25%;
+			height: 50px;
 			padding: .5em .75em;
 			margin-top: -3%;
 			margin-bottom: 0;
-			margin-left: 2%;
-			margin-right: 2%;
+			margin-left: 7%;
+			margin-right: 7%;
 			font-size:inherit;
 			line-height: normal;
 			vertical-align: middle;
@@ -213,9 +218,6 @@
 		</style>
 	</head>
 	<body>
-		<div id="jb-header">
-			<h1>CAI PROJECT</h1>
-		</div>
 		<div id="jb-container">
 <!-- 팔레트 폼 -->
 			
@@ -320,27 +322,33 @@
 						</div>
 					</div>
 					</br>
+					</br>
 				</div>
 
 			</fieldset>
-			
-			
+
+		</div>
+
+
+		<div id="jb-header">
+			<h1>CAI PROJECT</h1>
+		</div>
+
          <footer>
             <div class="buttonbox">
                <label for="button_1" style="background-color:rgb(40,40,44);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>
 <!--               <label for="button_1" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-face-80.png')}});background-repeat:no-repeat;background-position: center;"></label>-->
                <button id='button_1' onclick="window.location.href='192.168.0.9:8080/main'" ></button>
-               
+
                <label for="button_2" style="background-color:rgb(20,20,22);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>
 <!--               <label for="button_2" style="background-color:rgb(20,20,22);background-image: url({{url_for('static', filename='img/icon-palette-80.png')}});background-repeat:no-repeat;background-position: center;"></label>-->
                <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.9:8080/color_recommnd'"></button>
-               
+
                <label for="button_3" style="background-color:rgb(40,40,44);background-image: url(img/icon-clothes-80-2.png);background-repeat:no-repeat;background-position: center;"></label>
 <!--               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-clothes-80-2.png')}});background-repeat:no-repeat;background-position: center;"></label>-->
                <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.9:8080/musinsa_recommnd'"></button>
             </div>
          </footer>
 
-		</div>
 	</body>
 </html>
