@@ -62,6 +62,7 @@
 			margin-bottom: 1%;
 			border: .5px solid rgb(20,20,22,0);
 		  }
+
 		  #jb-wide-contents p{
 			padding-left:7%;
 			margin-bottom: 5%;
@@ -216,15 +217,35 @@
 			/*border: 0.5px solid rgb(250,250,250);*/
 		  }
 
-/* 닉네임 받아오기 ? http://tcpschool.com/javascript/js_bom_dialogBox */
+		  #image_section {
+		  	margin-left:auto;
+		  	margin-right:auto;
+		  	display:none;
+		  }
+
+		  #pc-type-result {
+		  	display:none;
+		  }
+
+		  #jb-wide-contents-type{
+		  	display:none;
+			padding: 3%;
+			margin-bottom: 1%;
+			border: .5px solid rgb(20,20,22,0);
+		  }
 		</style>
+
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+				integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+				crossorigin="anonymous"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/main6.js') }}"></script>
 	</head>
 	<body>
 		<div id="jb-container">
 			<fieldset id="jb-layer">
 				<!-- 사진 선택 & 타입 보기 버튼 넣기-->
 				<div id="jb-wide-contents">
-					<form name = "img_type_summary" id="file_form" action = "http://192.168.0.9:8080/upload" method = "POST" enctype="multipart/form-data">
+					<form name = "img_type_summary" id="file_form" action = "http://192.168.219.112:8080/upload" method = "POST" enctype="multipart/form-data">
 						<div class="filebox">
 							<label for="ex_file">사진선택</label>
 							<input type='file' id='ex_file' name='file' onchange="readURL(this);"/>
@@ -243,21 +264,26 @@
 					<!-- 얼굴 사진 리사이징 띄우기
 					<img id="image_section" src="#" alt="img" style="width:60%; height: auto;"/>
 					-->
-					<img id="image_section" src="img/origin_crop.jpg" alt="img" style="width:60%; height: auto;"/>
+					<img id="image_section" src="#" alt="img" style="width:60%; height: auto;"/>
 					
 				
 					<!-- 얼굴 측색 RGB 받아오기 -->
 					<!-- 퍼스널 컬러 타입 받아오기 -->
-					<div id="jb-wide-contents" style="background-color:rgb(245, 215, 200)">
+					<div id="jb-wide-contents-type" style="background-color:rgb(245, 215, 200)">
 						<hr color="white" size=5 style="margin-top: -.5%;"/>
 						<h2 style="letter-spacing:4px">WARM SPRING BRIGHT</h2>
 						<hr color="white" size=5 style="margin-bottom: -.5%;"/>
 					</div>
 					
 					<!-- 머신러닝 정확도 (or) 랜덤함수로 퍼센티지 갖고 오기 -->
-					</br>
-					당신의 피부 측색 결과 <b>XX.X% 정확도로</b></br>
-					<font style="font-size: 120%;"><b>'Warm Spring Bright'</b></font> 입니다.</br>
+
+					<br>
+					<br>
+					<div id="pc-type-result">
+						당신의 피부 측색 결과 <b>XX.X% 정확도로</b><br>
+						<font style="font-size: 120%;"><b>'Warm Spring Bright'</b></font> 입니다.
+					</div>
+
 				</div>
 				</br>
 				</br>
@@ -271,17 +297,17 @@
 
          <footer>
             <div class="buttonbox">
-               <label for="button_1" style="background-color:rgb(20,20,22);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>
-<!--               <label for="button_1" style="background-color:rgb(20,20,22);background-image: url({{url_for('static', filename='img/icon-face-80.png')}});background-repeat:no-repeat;background-position: center;"></label>-->
+<!--               <label for="button_1" style="background-color:rgb(20,20,22);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
+               <label for="button_1" style="background-color:rgb(20,20,22);background-image: url({{url_for('static', filename='img/icon-face-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
                <button id='button_1' onclick="window.location.href='192.168.0.9:8080/main'" ></button>
 
-               <label for="button_2" style="background-color:rgb(40,40,44);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>
-<!--               <label for="button_2" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-palette-80.png')}});background-repeat:no-repeat;background-position: center;"></label>-->
-               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.9:8080/color_recommnd'"></button>
+<!--               <label for="button_2" style="background-color:rgb(40,40,44);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
+               <label for="button_2" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-palette-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
+               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.219.112:8080/color_recommnd'"></button>
 
-               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url(img/icon-clothes-80-2.png);background-repeat:no-repeat;background-position: center;"></label>
-<!--               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-clothes-80-2.png')}});background-repeat:no-repeat;background-position: center;"></label>-->
-               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.9:8080/musinsa_recommnd'"></button>
+<!--               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url(img/icon-clothes-80-2.png);background-repeat:no-repeat;background-position: center;"></label>-->
+               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-clothes-80-2.png')}});background-repeat:no-repeat;background-position: center;"></label>
+               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.219.112:8080/musinsa_recommnd'"></button>
             </div>
          </footer>
 	</body>

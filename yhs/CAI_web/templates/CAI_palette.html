@@ -235,17 +235,22 @@
 					<div class="personal_layout" id="model_m" style="display:block; margin-top: 7%;">
 <!--					<div class="personal_layout" id="model_m" style="display:none; margin-top: 7%;">-->
 						<!-- 얼굴 측색 RGB 받아오기 -->
-						<img src="img/personal-test-top_m.png" style="background-color:rgb(245, 215, 200)"/>
+<!--						<img src="img/personal-test-top_m.png" style="background-color:rgb(245, 215, 200)"/>-->
+						<img src="{{url_for('static', filename='img/personal-test-top_m.png')}}" style="background-color:rgb(245, 215, 200)"/>
+
 						<!-- 클릭한 팔레트의 색 받아오기 -->
-						<img src="img/personal-test-bottom_m.png" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>
+<!--						<img src="img/personal-test-bottom_m.png" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>-->
+						<img src="{{url_for('static', filename='img/personal-test-bottom_m.png')}}" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>
 					</div>
 					
 <!--					<div class="personal_layout" id="model_w" style="display:block; margin-top: 7%;">-->
 					<div class="personal_layout" id="model_w" style="display:none; margin-top: 7%;">
 						<!-- 얼굴 측색 RGB 받아오기 -->
-						<img src="img/personal-test-top.png" style="background-color:rgb(245, 215, 200)"/>
+<!--						<img src="img/personal-test-top.png" style="background-color:rgb(245, 215, 200)"/>-->
+						<img src="{{url_for('static', filename='img/personal-test-top.png')}}" style="background-color:rgb(245, 215, 200)"/>
 						<!-- 클릭한 팔레트의 색 받아오기 -->
-						<img src="img/personal-test-bottom.png" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>
+<!--						<img src="img/personal-test-bottom.png" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>-->
+						<img src="{{url_for('static', filename='img/personal-test-bottom.png')}}" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>
 					</div>
 					
 					
@@ -336,17 +341,17 @@
 
          <footer>
             <div class="buttonbox">
-               <label for="button_1" style="background-color:rgb(40,40,44);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>
-<!--               <label for="button_1" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-face-80.png')}});background-repeat:no-repeat;background-position: center;"></label>-->
-               <button id='button_1' onclick="window.location.href='192.168.0.9:8080/main'" ></button>
+<!--               <label for="button_1" style="background-color:rgb(40,40,44);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
+               <label for="button_1" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-face-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
+               <button id='button_1' onclick="window.location.href='http://192.168.219.112:8080/main'" ></button>
 
-               <label for="button_2" style="background-color:rgb(20,20,22);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>
-<!--               <label for="button_2" style="background-color:rgb(20,20,22);background-image: url({{url_for('static', filename='img/icon-palette-80.png')}});background-repeat:no-repeat;background-position: center;"></label>-->
-               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.9:8080/color_recommnd'"></button>
+<!--               <label for="button_2" style="background-color:rgb(20,20,22);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
+               <label for="button_2" style="background-color:rgb(20,20,22);background-image: url({{url_for('static', filename='img/icon-palette-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
+               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.219.112:8080/color_recommnd'"></button>
 
-               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url(img/icon-clothes-80-2.png);background-repeat:no-repeat;background-position: center;"></label>
-<!--               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-clothes-80-2.png')}});background-repeat:no-repeat;background-position: center;"></label>-->
-               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.9:8080/musinsa_recommnd'"></button>
+<!--               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url(img/icon-clothes-80-2.png);background-repeat:no-repeat;background-position: center;"></label>-->
+               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-clothes-80-2.png')}});background-repeat:no-repeat;background-position: center;"></label>
+               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.219.112:8080/musinsa_recommnd'"></button>
             </div>
          </footer>
 
