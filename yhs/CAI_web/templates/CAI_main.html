@@ -12,6 +12,9 @@
 			font-family: Vernada;
 			font-size: 215%;
 		  }
+		  body::-webkit-scrollbar{
+		  	display:none;
+		  }
 		  footer{
 			position:fixed;
 			margin: auto;
@@ -238,19 +241,19 @@
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 				integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 				crossorigin="anonymous"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='js/main6.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/main25.js') }}"></script>
 	</head>
 	<body>
 		<div id="jb-container">
 			<fieldset id="jb-layer">
 				<!-- 사진 선택 & 타입 보기 버튼 넣기-->
 				<div id="jb-wide-contents">
-					<form name = "img_type_summary" id="file_form" action = "http://192.168.219.112:8080/upload" method = "POST" enctype="multipart/form-data">
+					<form name = "img_type_summary" id="file_form" action = "http://localhost:8080/upload" method = "POST" enctype="multipart/form-data">
 						<div class="filebox">
 							<label for="ex_file">사진선택</label>
 							<input type='file' id='ex_file' name='file' onchange="readURL(this);"/>
 							<label for="show_type">타입보기</label>
-							<input type="button" id='show_type' name="show_type" onclick="typeSubmit()"/>
+							<input type="button" id='show_type' name="show_type"/>
 						</div>
 						
 						<h2 style="margin-bottom: -1%;">Guide</h2>
@@ -271,7 +274,7 @@
 					<!-- 퍼스널 컬러 타입 받아오기 -->
 					<div id="jb-wide-contents-type" style="background-color:rgb(245, 215, 200)">
 						<hr color="white" size=5 style="margin-top: -.5%;"/>
-						<h2 style="letter-spacing:4px">WARM SPRING BRIGHT</h2>
+						<h2 id="pc-type-result-span" style="letter-spacing:4px">WARM SPRING BRIGHT</h2>
 						<hr color="white" size=5 style="margin-bottom: -.5%;"/>
 					</div>
 					
@@ -281,7 +284,7 @@
 					<br>
 					<div id="pc-type-result">
 						당신의 피부 측색 결과 <b>XX.X% 정확도로</b><br>
-						<font style="font-size: 120%;"><b>'Warm Spring Bright'</b></font> 입니다.
+						<font style="font-size: 120%;"><b><span class="pc-type-result-span">''</span></b></font> 입니다.
 					</div>
 
 				</div>
@@ -299,15 +302,15 @@
             <div class="buttonbox">
 <!--               <label for="button_1" style="background-color:rgb(20,20,22);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_1" style="background-color:rgb(20,20,22);background-image: url({{url_for('static', filename='img/icon-face-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_1' onclick="window.location.href='192.168.0.9:8080/main'" ></button>
+               <button id='button_1' onclick="window.location.href='http://localhost:8080/main'" ></button>
 
 <!--               <label for="button_2" style="background-color:rgb(40,40,44);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_2" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-palette-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.219.112:8080/color_recommnd'"></button>
+               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://localhost:8080/color_recommnd'"></button>
 
 <!--               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url(img/icon-clothes-80-2.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_3" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-clothes-80-2.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.219.112:8080/musinsa_recommnd'"></button>
+               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://localhost:8080/musinsa_recommnd'"></button>
             </div>
          </footer>
 	</body>

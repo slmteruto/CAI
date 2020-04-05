@@ -12,6 +12,9 @@
 			font-family: Vernada;
 			font-size: 215%;
 		  }
+		  body::-webkit-scrollbar{
+		  	display:none;
+		  }
 		  footer{
 			position:fixed;
 			margin: auto;
@@ -215,7 +218,19 @@
 			/*border: 0.5px solid rgb(250,250,250);*/
 		  }
 
+		  #model_m {
+		  	display:block;
+		  }
+		  #model_w {
+		  	display:none;
+		  }
+
 		</style>
+
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+				integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+				crossorigin="anonymous"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/menuTwo8.js') }}"></script>
 	</head>
 	<body>
 		<div id="jb-container">
@@ -225,32 +240,32 @@
 				<div id="jb-wide-contents">
 					<div class="filebox">
 						<label for="bt_male">남자</label>
-						<input type="button" id='bt_male' name="Male"/>
+						<input type="button" id='bt_male' name="Male" onclick="bt_male_func()"/>
 						<label for="bt_female">여자</label>
-						<input type="button" id='bt_female' name="Female"/>
+						<input type="button" id='bt_female' name="Female" onclick="bt_female_func()"/>
 						<p></p>
 					</div>
 					
 					
-					<div class="personal_layout" id="model_m" style="display:block; margin-top: 7%;">
+					<div class="personal_layout" id="model_m" style="margin-top: 7%;">
 <!--					<div class="personal_layout" id="model_m" style="display:none; margin-top: 7%;">-->
 						<!-- 얼굴 측색 RGB 받아오기 -->
 <!--						<img src="img/personal-test-top_m.png" style="background-color:rgb(245, 215, 200)"/>-->
-						<img src="{{url_for('static', filename='img/personal-test-top_m.png')}}" style="background-color:rgb(245, 215, 200)"/>
+						<img id="img_top_m" src="{{url_for('static', filename='img/personal-test-top_m.png')}}" style="background-color:rgb(245, 215, 200)"/>
 
 						<!-- 클릭한 팔레트의 색 받아오기 -->
 <!--						<img src="img/personal-test-bottom_m.png" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>-->
-						<img src="{{url_for('static', filename='img/personal-test-bottom_m.png')}}" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>
+						<img id="img_bottom_m" src="{{url_for('static', filename='img/personal-test-bottom_m.png')}}" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>
 					</div>
 					
 <!--					<div class="personal_layout" id="model_w" style="display:block; margin-top: 7%;">-->
-					<div class="personal_layout" id="model_w" style="display:none; margin-top: 7%;">
+					<div class="personal_layout" id="model_w" style="margin-top: 7%;">
 						<!-- 얼굴 측색 RGB 받아오기 -->
 <!--						<img src="img/personal-test-top.png" style="background-color:rgb(245, 215, 200)"/>-->
-						<img src="{{url_for('static', filename='img/personal-test-top.png')}}" style="background-color:rgb(245, 215, 200)"/>
+						<img id="img_top_w" src="{{url_for('static', filename='img/personal-test-top.png')}}" style="background-color:rgb(245, 215, 200)"/>
 						<!-- 클릭한 팔레트의 색 받아오기 -->
 <!--						<img src="img/personal-test-bottom.png" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>-->
-						<img src="{{url_for('static', filename='img/personal-test-bottom.png')}}" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>
+						<img id="img_bottom_w" src="{{url_for('static', filename='img/personal-test-bottom.png')}}" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>
 					</div>
 					
 					
@@ -343,15 +358,15 @@
             <div class="buttonbox">
 <!--               <label for="button_1" style="background-color:rgb(40,40,44);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_1" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-face-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_1' onclick="window.location.href='http://192.168.219.112:8080/main'" ></button>
+               <button id='button_1' onclick="window.location.href='http://localhost:8080/main'" ></button>
 
 <!--               <label for="button_2" style="background-color:rgb(20,20,22);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_2" style="background-color:rgb(20,20,22);background-image: url({{url_for('static', filename='img/icon-palette-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.219.112:8080/color_recommnd'"></button>
+               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://localhost:8080/color_recommnd'"></button>
 
 <!--               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url(img/icon-clothes-80-2.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_3" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-clothes-80-2.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.219.112:8080/musinsa_recommnd'"></button>
+               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://localhost:8080/musinsa_recommnd'"></button>
             </div>
          </footer>
 
