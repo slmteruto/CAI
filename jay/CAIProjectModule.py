@@ -349,20 +349,23 @@ class ColorPalette:
     def show_colors(self, personal_palette):
         self.personal_palette = personal_palette
         try:
-            rows, cols, cnt = 1, len(self.personal_palette), 1
-            fig = plt.figure(figsize=(12, 3))
+            if "No matched user" in personal_palette:
+                print("error:No matched user or No matched purchase list")
+            else:
+                rows, cols, cnt = 1, len(self.personal_palette), 1
+                fig = plt.figure(figsize=(12, 3))
 
-            for i in range(len(self.personal_palette)):
-                h, s, v = self.personal_palette[i]
-                RGB = hsv_to_rgb(np.array([[[h/359, s/100, v/100]]]))
+                for i in range(len(self.personal_palette)):
+                    h, s, v = self.personal_palette[i]
+                    RGB = hsv_to_rgb(np.array([[[h/359, s/100, v/100]]]))
 
-                # 시각화
-                ax = fig.add_subplot(rows, cols, cnt)
-                ax.imshow(RGB)
-                ax.set_title(i)
-                ax.set_xticks([]), ax.set_yticks([])
-                cnt += 1
-            plt.show()
+                    # 시각화
+                    ax = fig.add_subplot(rows, cols, cnt)
+                    ax.imshow(RGB)
+                    ax.set_title(i)
+                    ax.set_xticks([]), ax.set_yticks([])
+                    cnt += 1
+                plt.show()
 
         except:
             print('팔레트 시각화에서 오류발생')
@@ -371,50 +374,49 @@ class ColorPalette:
     def matchedPrdt(self, personal_palette, HSV):
         self.personal_palette, self.HSV = personal_palette, HSV
         
-#         try:
-        error_range = [5, 5, 5] # 색매칭 오차범위 변수담기
-        matched_prdt = [] # 팔레트 총 추천상품 담을 변수
+        if "No matched user" in personal_palette:
+            self.prdt_list = "error:No matched user or No matched purchase list"
+        else:
+            error_range = [7, 5, 5] # 색매칭 오차범위 변수담기
+            matched_prdt = [] # 팔레트 총 추천상품 담을 변수
 
-        for i in range(len(self.personal_palette)):
-            prdt_codes = [] # 팔레트별 추출 상품코드 담을 변수
-            h, s, v = self.personal_palette[i][0], self.personal_palette[i][1], self.personal_palette[i][2]
+            for i in range(len(self.personal_palette)):
+                self.prdt_codes = [] # 팔레트별 추출 상품코드 담을 변수
+                h, s, v = self.personal_palette[i][0], self.personal_palette[i][1], self.personal_palette[i][2]
 
-            # 오차범위 반영 fancy index 변수로 담기
-            H_idx = (self.HSV[:, :, 0]<(h+error_range[0]))&(self.HSV[:, :, 0]>(h-error_range[0]))
-            S_idx = (self.HSV[:, :, 1]<(s+error_range[1]))&(self.HSV[:, :, 1]>(s-error_range[1]))
-            V_idx = (self.HSV[:, :, 2]<(v+error_range[2]))&(self.HSV[:, :, 2]>(v-error_range[2]))
+                # 오차범위 반영 fancy index 변수로 담기
+                H_idx = (self.HSV[:, :, 0]<(h+error_range[0]))&(self.HSV[:, :, 0]>(h-error_range[0]))
+                S_idx = (self.HSV[:, :, 1]<(s+error_range[1]))&(self.HSV[:, :, 1]>(s-error_range[1]))
+                V_idx = (self.HSV[:, :, 2]<(v+error_range[2]))&(self.HSV[:, :, 2]>(v-error_range[2]))
 
-            # 매칭되는 값이 없을경우 예외처리
-            if self.HSV[(H_idx&S_idx&V_idx)].shape[0] == 0:
-                prdt_codes.append("error:no matched product")
-            else:
-                # fancy indexing으로 상품코드 찾기
-                if len(prdt_codes) <= 6:
-                    for j in range(self.HSV[(H_idx&S_idx&V_idx)].shape[0]):
-                        prdt_codes.append(self.HSV[(H_idx&S_idx&V_idx)][:,3][j])
+                # 매칭되는 값이 없을경우 예외처리
+                if self.HSV[(H_idx&S_idx&V_idx)].shape[0] == 0:
+                    self.prdt_codes.append("error:no matched product")
                 else:
-                    break
+                    # fancy indexing으로 상품코드 찾기
+                    if len(self.prdt_codes) <= 6:
+                        for j in range(self.HSV[(H_idx&S_idx&V_idx)].shape[0]):
+                            self.prdt_codes.append(self.HSV[(H_idx&S_idx&V_idx)][:,3][j])
+                    else:
+                        break
 
-            matched_prdt.append(prdt_codes)
+                matched_prdt.append(self.prdt_codes)
 
-        ## 리턴할 상품개수 6개로 제한
-        self.prdt_list = [] # 상품코드 담을 변수
-        cnt = 0
-        while len(self.prdt_list) < 6:
-                
-            if len(self.prdt_list) == 6:
-                break
-            for i in range(len(matched_prdt)):
+            ## 리턴할 상품개수 6개로 제한
+            self.prdt_list = [] # 상품코드 담을 변수
+            cnt = 0
+            while len(self.prdt_list) < 6:
                 if len(self.prdt_list) == 6:
                     break
-                elif matched_prdt[i][0] == "error:no matched product":
-                    pass
-                elif cnt <= len(matched_prdt[i]):
-                    self.prdt_list.append(matched_prdt[i][cnt])
-            cnt += 1
-
-#         except:
-#             print('상품추출에서 오류발생')
+                for i in range(len(matched_prdt)):
+                    if len(self.prdt_list) == 6:
+                        break
+                    elif matched_prdt[i][0] == "error:no matched product":
+                        pass
+                    elif cnt < len(matched_prdt[i]):
+                        if str(matched_prdt[i][cnt]) not in self.prdt_list:
+                            self.prdt_list.append(matched_prdt[i][cnt])
+                cnt += 1
 
         return self.prdt_list
 
@@ -447,13 +449,16 @@ class DatabaseConnetion:
     def getPrdtimage(self, cursor, prdt_code):
         self.prdt_code = prdt_code
         
-        imgLink_list = []
-        for code in self.prdt_code:
-            sql = "SELECT PRDT_IMG_LINK FROM PRDT_IMAGE WHERE PRDT_CODE = '{}';"
-            cursor.execute(sql.format(str(code)))
+        if "No matched user" in self.prdt_code:
+            imgLink_list = "error:No matched user or No matched purchase list"
+        else:
+            imgLink_list = []
+            for code in self.prdt_code:
+                sql = "SELECT PRDT_IMG_LINK FROM PRDT_IMAGE WHERE PRDT_CODE = '{}';"
+                cursor.execute(sql.format(str(code)))
 
-            link = str(cursor.fetchone()).replace("('", "").replace("',)", "")
-            imgLink_list.append(link)
+                link = str(cursor.fetchone()).replace("('", "").replace("',)", "")
+                imgLink_list.append(link)
 
         return imgLink_list
     
@@ -462,72 +467,78 @@ class DatabaseConnetion:
         purchase_prdt = [] # 구매상품 담을 목록
         cursor.execute("SELECT USER_NICK FROM PRDT_REVIEW WHERE USER_NICK in ('{}');".format(user_nick))
         
-        if cursor.fetchone() == None:
-            purchase_prdt.append("해당 닉네임의 구매 목록이 없습니다.")
+        if cursor.fetchone() == None: ## 해당 닉네임의 유저가 없음
+            purchase_prdt.append("error:No matched user or No matched purchase list")
             
         else:
             sql = "SELECT b.H, b.S, b.V FROM PRDT_REVIEW a, PRDT_IMAGE b WHERE USER_NICK='{}' AND a.PRDT_CODE = b.PRDT_CODE AND b.H is NOT NULL;"
             cursor.execute(sql.format(str(user_nick)))
             
-            for i in cursor.fetchall() :
-                purchase_prdt.append([float(i[0].replace("'","")), float(i[1].replace("'","")), float(i[2].replace("'",""))])
+            if cursor.fetchone() == None: ## 해당 닉네임의 TOP 카테고리 구매목록이 없음
+                purchase_prdt.append("error:No matched user or No matched purchase list")
+            else:
+                for i in cursor.fetchall():
+                    purchase_prdt.append([float(i[0].replace("'","")), float(i[1].replace("'","")), float(i[2].replace("'",""))])
 
         return purchase_prdt
 
 class ColorClustering:
-    hsv_list = list()
+    hsv_list = list() # 회색조 필터링 hsv 담을 변수
     ctrl, scale = [10, 5], [20, 10] # ctrl = [H조정값, SV조정값] / scale = [H확장규모, SV확장규모]
     
     def colorGenerator(self, hsv):
-#         self.hsv_list = hsv_list # hsv_list = [[h1, s1, v1], [h2, s2, v3], ...]
+        # H, S, V, HSV = np.array([]), np.array([]), np.array([]), np.array([])
+        
+        if "No matched user" in hsv:
+            HSV = "error:No matched user or No matched purchase list"
+        else:
+            ## extend color scale
+            for (h, s, v), i in zip(hsv, range(len(hsv))):
+                ## hsv 제너레이팅 범위 설정 시 색범위를 벗어나지 않도록 방지
 
-        ## extend color scale
-        for (h, s, v), i in zip(hsv, range(len(hsv))):
-            ## hsv 제너레이팅 범위 설정 시 색범위를 벗어나지 않도록 방지
+                if (h-self.ctrl[0]) < 0:        # h 시작값 (최소 0)
+                    h_start = 0
+                else:
+                    h_start = (h-self.ctrl[0])
+                if (h+self.ctrl[0]) > 359:      # h 종료값 (최대 359)
+                    h_end = 359
+                else:
+                    h_end = (h+self.ctrl[0])
 
-            if (h-self.ctrl[0]) < 0:        # h 시작값 (최소 0)
-                h_start = 0
-            else:
-                h_start = (h-self.ctrl[0])
-            if (h+self.ctrl[0]) > 359:      # h 종료값 (최대 359)
-                h_end = 359
-            else:
-                h_end = (h+self.ctrl[0])
+                if (s-self.ctrl[1]) < 0:        # s 시작값 (최소 0)
+                    s_start = 0
+                else:
+                    s_start = (s-self.ctrl[1])
+                if (s+self.ctrl[1]) > 100:      # s 종료값 (최대 100)
+                    s_end = 100
+                else:
+                    s_end = (s+self.ctrl[1])
 
-            if (s-self.ctrl[1]) < 0:        # s 시작값 (최소 0)
-                s_start = 0
-            else:
-                s_start = (s-self.ctrl[1])
-            if (s+self.ctrl[1]) > 100:      # s 종료값 (최대 100)
-                s_end = 100
-            else:
-                s_end = (s+self.ctrl[1])
-
-            if (v-self.ctrl[1]) < 0:        # v 시작값 (최소 0)
-                v_start = 0
-            else:
-                v_start = (v-self.ctrl[1])
-            if (v+self.ctrl[1]) > 100:      # v 종료값 (최대 100)
-                v_end = 100
-            else:
-                v_end = (v+self.ctrl[1])
+                if (v-self.ctrl[1]) < 0:        # v 시작값 (최소 0)
+                    v_start = 0
+                else:
+                    v_start = (v-self.ctrl[1])
+                if (v+self.ctrl[1]) > 100:      # v 종료값 (최대 100)
+                    v_end = 100
+                else:
+                    v_end = (v+self.ctrl[1])
 
 
-            ## 첫번째 hsv 제너레이팅 배열생성
-            if i==0:
-                V, H = np.mgrid[v_start:v_end:complex(self.scale[1]), h_start:h_end:complex(self.scale[0])]
-                S, H = np.mgrid[s_start:s_end:complex(self.scale[1]), h_start:h_end:complex(self.scale[0])]
+                ## 첫번째 hsv 제너레이팅 배열생성
+                if i==0:
+                    V, H = np.mgrid[v_start:v_end:complex(self.scale[1]), h_start:h_end:complex(self.scale[0])]
+                    S, H = np.mgrid[s_start:s_end:complex(self.scale[1]), h_start:h_end:complex(self.scale[0])]
 
-            ## 첫번째 배열 + 나머지 hsv 제너레이팅 배열 합치기
-            else:
-                V_n, H_n = np.mgrid[v_start:v_end:complex(self.scale[1]), h_start:h_end:complex(self.scale[0])]
-                S_n, H_n = np.mgrid[s_start:s_end:complex(self.scale[1]), h_start:h_end:complex(self.scale[0])]
+                ## 첫번째 배열 + 나머지 hsv 제너레이팅 배열 합치기
+                else:
+                    V_n, H_n = np.mgrid[v_start:v_end:complex(self.scale[1]), h_start:h_end:complex(self.scale[0])]
+                    S_n, H_n = np.mgrid[s_start:s_end:complex(self.scale[1]), h_start:h_end:complex(self.scale[0])]
 
-                H = np.hstack((H, H_n))
-                S = np.hstack((S, S_n))
-                V = np.hstack((V, V_n))
+                    H = np.hstack((H, H_n))
+                    S = np.hstack((S, S_n))
+                    V = np.hstack((V, V_n))
 
-        HSV = np.dstack((H, S, V))
+            HSV = np.dstack((H, S, V))
 
         return HSV
     
@@ -535,41 +546,57 @@ class ColorClustering:
     ## Gray tone Filtering : 1. 채도S 명도V 모두 20이하 2, 채도S+(100-명도V)가 20이하 3. (100-채도S)+명도V가 20이하
     ### ## 고객 구매 목록 색정보 받아서 사용 
     def greytoneFilter(self, prdt_hsv_list):
-#         hsv_list = [] # 회색조 필터링 hsv 담을 변수
-        for h, s, v in prdt_hsv_list:
-            if (s<=30 and v<=30) or ((s+(100-v))<=20) or (((100-s)+v)<=20):
-                pass
-            else:
-                self.hsv_list.append([h, s, v])
+        self.hsv_list = list()
+        
+        if "No matched user" in prdt_hsv_list[0]:
+            self.hsv_list = "error:No matched user or No matched purchase list"
+        else:
+            for h, s, v in prdt_hsv_list:
+                if (s<=30 and v<=30) or ((s+(100-v))<=20) or (((100-s)+v)<=20):
+                    pass
+                else:
+                    self.hsv_list.append([h, s, v])
+
+            if len(self.hsv_list) == 0:
+                self.hsv_list = prdt_hsv_list
+            
         return self.hsv_list
     
     
     ## Clustering 구매상품 데이터 적용용
     def colorClustering(self, HSV):
-        ## Cluster 개수
-        n_hsv, n_ctrl = len(self.hsv_list), 7
-        if n_hsv/n_ctrl <= 2:
-            if n_hsv < 5:
-                n_clusters = n_hsv
+        if "No matched user" in HSV:
+            centroid = "error:No matched user or No matched purchase list"
+        else:
+            ## Cluster 개수
+            n_hsv, n_ctrl = len(self.hsv_list), 7
+            if n_hsv == 1:
+                n_clusters = 2
+            elif n_hsv/n_ctrl <= 2:
+                if n_hsv < 5:
+                    n_clusters = n_hsv
+                else:
+                    n_clusters = 5
             else:
-                n_clusters = 5
-        else:
-            n_clusters = (n_hsv//n_ctrl)+5
+                n_clusters = (n_hsv//n_ctrl)+5
 
-        ## Clustering Dataset 생성
-        X = HSV[:, :, :3].reshape(HSV.shape[0]*HSV.shape[1], HSV.shape[2])
-        ## 알고리즘 선정 : Hierarchical
-        algorithm = AgglomerativeClustering(n_clusters=n_clusters, affinity="euclidean")
-        ## Clustering 실행
-        with ignore_warnings(category=UserWarning):
-            algorithm.fit(X)
-        if hasattr(algorithm, 'labels_'):
-            y_pred = algorithm.labels_.astype(np.int)
-        else:
-            y_pred = algorithm.predict(X)
+            ## Clustering Dataset 생성
+            X = HSV[:, :, :3].reshape(HSV.shape[0]*HSV.shape[1], HSV.shape[2])
+            ## 알고리즘 선정 : Hierarchical
+            algorithm = AgglomerativeClustering(n_clusters=n_clusters, affinity="euclidean")
+            ## Clustering 실행
+            with ignore_warnings(category=UserWarning):
+                algorithm.fit(X)
+            if hasattr(algorithm, 'labels_'):
+                y_pred = algorithm.labels_.astype(np.int)
+            else:
+                y_pred = algorithm.predict(X)
 
-        ## centroid(중심점)찾기
-        clf = NearestCentroid()
-        centroid = clf.fit(X, y_pred).centroids_
+            ## centroid(중심점)찾기
+            clf = NearestCentroid()
+            centroid = clf.fit(X, y_pred).centroids_
 
         return centroid
+    
+    
+    
