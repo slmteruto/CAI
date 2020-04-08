@@ -25,15 +25,17 @@ class ColorPalette:
         # hue 변경 값
         h_warm_plus, h_cool_plus = [175, 30, 330, 50, 180, 230], [185, 150, 210, 130, 180, 310]
         # saturation 변경 값
-        s_SpringWinter_plus, s_SummerAutumn_plus = [40, 10, 30, 50, 45, 50], [0, -30, -10, 10, 5, 10]
+#         s_SpringWinter_plus, s_SummerAutumn_plus = [40, 10, 30, 50, 45, 50], [0, -30, -10, 10, 5, 10]
+        s_SpringWinter_plus, s_SummerAutumn_plus = [35, 5, 25, 45, 40, 45], [-5, -35, -15, 5, 0, 5]
         # Value 변경 값
-        v_SpringWinter_plus, v_SummerAutumn_plus = [-40, -15, -30, -40, -15, -40], [-20, 5, -10, -20, 5, -20]
+#         v_SpringWinter_plus, v_SummerAutumn_plus = [-40, -15, -30, -40, -15, -40], [-20, 5, -10, -20, 5, -20]
+        v_SpringWinter_plus, v_SummerAutumn_plus = [-35, -10, -25, -35, -10, -35], [-15, 10, -5, -15, 10, -15]
         # 각 보색 값 변수
         h_list, s_list, v_list = [], [], []
 
         try:
             # 웜톤
-            if self.H >= 26 and self.H <= 206 : 
+            if self.H >= 23 and self.H <= 203 : 
                 # 웜톤 HUE 변경
                 for hue, i in zip(h_warm_plus, range(6)):
                     if self.H+hue <= 359:
@@ -68,7 +70,7 @@ class ColorPalette:
                                 v_list.append(self.V-v_SpringWinter_plus[i])                    
 
                 # 가을
-                elif diff <= 43.15:
+                elif diff < 43.15:
                     for saturation, value, i in zip(s_SummerAutumn_plus, v_SummerAutumn_plus, range(6)):
                         if saturation >= 0:                    
                             if self.S+saturation <= 100:
@@ -93,7 +95,7 @@ class ColorPalette:
                                 v_list.append(self.V-v_SummerAutumn_plus[i])
 
             # 쿨톤
-            elif (self.H >= 0 and self.H < 26) or (self.H > 206 and self.H <= 360) :
+            elif (self.H >= 0 and self.H < 23) or (self.H > 203 and self.H <= 360) :
                 # 쿨톤 HUE 변경
                 for hue, i in zip(h_cool_plus, range(6)):
                     if self.H+hue <= 359:
@@ -127,7 +129,7 @@ class ColorPalette:
                                 v_list.append(self.V-v_SummerAutumn_plus[i])
 
                 # 겨울
-                elif diff <= 47.15:
+                elif diff < 47.15:
                     for saturation, value, i in zip(s_SpringWinter_plus, v_SpringWinter_plus, range(6)):
                         # Saturation
                         if saturation >= 0:                    
@@ -182,7 +184,8 @@ class ColorPalette:
 
         # (보색, 삼각보색1, 삼각보색2, 이중보색1, 이중보색2, 이중보색3)
         # hue 변경 값
-        h_warm_plus, h_cool_plus = [247, 102, 42, 122, 252, 302], [257, 222, 282, 202, 252, 22]
+#         h_warm_plus, h_cool_plus = [247, 102, 42, 122, 252, 302], [257, 222, 282, 202, 252, 22]
+        h_warm_plus, h_cool_plus = [31, 246, 186, 266, 36, 86], [41, 6, 66, 346, 36, 166]
         # saturation 변경 값
         s_SpringWinter_plus, s_SummerAutumn_plus = [40, 10, 30, 50, 45, 50], [0, -30, -10, 10, 5, 10]
         # Value 변경 값
@@ -192,7 +195,7 @@ class ColorPalette:
 
         try:
             # 웜톤
-            if self.H >= 26 and self.H <= 206 : 
+            if self.H >= 23 and self.H <= 203 : 
                 # 웜톤 HUE 변경
                 for hue, i in zip(h_warm_plus, range(6)):
                     if self.H+hue <= 359:
@@ -227,7 +230,7 @@ class ColorPalette:
                                 v_list.append(self.V-v_SpringWinter_plus[i])                    
 
                 # 가을
-                elif diff <= 43.15:
+                elif diff < 43.15:
                     for saturation, value, i in zip(s_SummerAutumn_plus, v_SummerAutumn_plus, range(6)):
                         if saturation >= 0:                    
                             if self.S+saturation <= 100:
@@ -252,7 +255,7 @@ class ColorPalette:
                                 v_list.append(self.V-v_SummerAutumn_plus[i])
 
             # 쿨톤
-            elif (self.H >= 0 and self.H < 26) or (self.H > 206 and self.H <= 360) :
+            elif (self.H >= 0 and self.H < 23) or (self.H > 203 and self.H <= 360) :
                 # 쿨톤 HUE 변경
                 for hue, i in zip(h_cool_plus, range(6)):
                     if self.H+hue <= 359:
@@ -286,7 +289,7 @@ class ColorPalette:
                                 v_list.append(self.V-v_SummerAutumn_plus[i])
 
                 # 겨울
-                elif diff <= 47.15:
+                elif diff < 47.15:
                     for saturation, value, i in zip(s_SpringWinter_plus, v_SpringWinter_plus, range(6)):
                         # Saturation
                         if saturation >= 0:                    
