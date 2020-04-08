@@ -39,7 +39,7 @@ class ColorPalette:
                     if self.H+hue <= 359:
                         h_list.append(self.H+h_warm_plus[i])
                     else:
-                        h_list.append(self.H+h_warm_plus[1]-359)
+                        h_list.append(self.H+h_warm_plus[i]-359)
 
                 # 봄
                 if diff >= 43.15 :
@@ -99,7 +99,7 @@ class ColorPalette:
                     if self.H+hue <= 359:
                         h_list.append(self.H+h_cool_plus[i])
                     else:
-                        h_list.append(self.H+h_cool_plus[1]-359)
+                        h_list.append(self.H+h_cool_plus[i]-359)
 
                 # 여름
                 if diff >= 47.15 :
@@ -198,7 +198,7 @@ class ColorPalette:
                     if self.H+hue <= 359:
                         h_list.append(self.H+h_warm_plus[i])
                     else:
-                        h_list.append(self.H+h_warm_plus[1]-359)
+                        h_list.append(self.H+h_warm_plus[i]-359)
 
                 # 봄
                 if diff >= 43.15 :
@@ -258,7 +258,7 @@ class ColorPalette:
                     if self.H+hue <= 359:
                         h_list.append(self.H+h_cool_plus[i])
                     else:
-                        h_list.append(self.H+h_cool_plus[1]-359)
+                        h_list.append(self.H+h_cool_plus[i]-359)
 
                 # 여름
                 if diff >= 47.15 :
@@ -353,7 +353,7 @@ class ColorPalette:
                 print("error:No matched user or No matched purchase list")
             else:
                 rows, cols, cnt = 1, len(self.personal_palette), 1
-                fig = plt.figure(figsize=(12, 3))
+                fig = plt.figure(figsize=(15, 3))
 
                 for i in range(len(self.personal_palette)):
                     h, s, v = self.personal_palette[i]
@@ -552,7 +552,7 @@ class ColorClustering:
             self.hsv_list = "error:No matched user or No matched purchase list"
         else:
             for h, s, v in prdt_hsv_list:
-                if (s<=30 and v<=30) or ((s+(100-v))<=20) or (((100-s)+v)<=20):
+                if s<=5 or v<=10 or ((s+v)<=40) or ((s+(100-v))<=15) or (((100-s)+v)<=15):
                     pass
                 else:
                     self.hsv_list.append([h, s, v])
