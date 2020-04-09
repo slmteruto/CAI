@@ -230,9 +230,13 @@
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 				integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 				crossorigin="anonymous"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='js/menuTwo8.js') }}"></script>
+
+		<script>
+			var data = {{ data|safe }};
+		</script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/menuTwo30.js') }}"></script>
 	</head>
-	<body>
+	<body onload="bt_male_func()">
 		<div id="jb-container">
 <!-- 팔레트 폼 -->
 			
@@ -274,32 +278,32 @@
 					<div id="jb-wide-contents" style="margin-bottom: -1%; margin-top:-2%;">
 					- Bright Palette -</div>
 					<div class="palette_layout">
-						<div class="palette_color" style="background-color:rgb(15,65,69)">
+						<div class="palette_color brt-blc1" style="background-color:rgb(15,65,69)">
 							<h6 style="background-color:rgb(250,250,250)">
 								<font color=black>RGB</br>15, 65, 69</font>
 							</h6>
 						</div>
-						<div class="palette_color" style="background-color:rgb(174,158,235)">
+						<div class="palette_color brt-blc2" style="background-color:rgb(174,158,235)">
 							<h6 style="background-color:rgb(250,250,250)">
 								<font color=black>RGB</br>174, 158, 235</font>
 							</h6>
 						</div>
-						<div class="palette_color" style="background-color:rgb(69,35,24)">
+						<div class="palette_color brt-blc3" style="background-color:rgb(69,35,24)">
 							<h6 style="background-color:rgb(250,250,250)">
 								<font color=black>RGB</br>69, 35, 24</font>
 							</h6>
 						</div>
-						<div class="palette_color" style="background-color:rgb(254,66,69)">
+						<div class="palette_color brt-blc4" style="background-color:rgb(254,66,69)">
 							<h6 style="background-color:rgb(250,250,250)">
 								<font color=black>RGB</br>254, 66, 69</font>
 							</h6>
 						</div>
-						<div class="palette_color" style="background-color:rgb(136,186,69)">
+						<div class="palette_color brt-blc5" style="background-color:rgb(136,186,69)">
 							<h6 style="background-color:rgb(250,250,250)">
 								<font color=black>RGB</br>136, 186, 69</font>
 							</h6>
 						</div>
-						<div class="palette_color" style="background-color:rgb(194,211,69)">
+						<div class="palette_color brt-blc6" style="background-color:rgb(194,211,69)">
 							<h6 style="background-color:rgb(250,250,250)">
 								<font color=black>RGB</br>194, 211, 69</font>
 							</h6>
@@ -310,32 +314,32 @@
 					<div id="jb-wide-contents" style="margin-bottom: -1%; margin-top:-3%;">
 					- Harmony Palette -</div>
 					<div class="palette_layout">
-						<div class="palette_color" style="background-color:rgb(15,65,69)">
+						<div class="palette_color hmny-blc1" style="background-color:rgb(15,65,69)">
 							<h6 style="background-color:rgb(250,250,250)">
 								<font color=black>RGB</br>15, 65, 69</font>
 							</h6>
 						</div>
-						<div class="palette_color" style="background-color:rgb(174,158,235)">
+						<div class="palette_color hmny-blc2" style="background-color:rgb(174,158,235)">
 							<h6 style="background-color:rgb(250,250,250)">
 								<font color=black>RGB</br>174, 158, 235</font>
 							</h6>
 						</div>
-						<div class="palette_color" style="background-color:rgb(69,35,24)">
+						<div class="palette_color hmny-blc3" style="background-color:rgb(69,35,24)">
 							<h6 style="background-color:rgb(250,250,250)">
 								<font color=black>RGB</br>69, 35, 24</font>
 							</h6>
 						</div>
-						<div class="palette_color" style="background-color:rgb(254,66,69)">
+						<div class="palette_color hmny-blc4" style="background-color:rgb(254,66,69)">
 							<h6 style="background-color:rgb(250,250,250)">
 								<font color=black>RGB</br>254, 66, 69</font>
 							</h6>
 						</div>
-						<div class="palette_color" style="background-color:rgb(136,186,69)">
+						<div class="palette_color hmny-blc5" style="background-color:rgb(136,186,69)">
 							<h6 style="background-color:rgb(250,250,250)">
 								<font color=black>RGB</br>136, 186, 69</font>
 							</h6>
 						</div>
-						<div class="palette_color" style="background-color:rgb(194,211,69)">
+						<div class="palette_color hmny-blc6" style="background-color:rgb(194,211,69)">
 							<h6 style="background-color:rgb(250,250,250)">
 								<font color=black>RGB</br>194, 211, 69</font>
 							</h6>
@@ -358,15 +362,15 @@
             <div class="buttonbox">
 <!--               <label for="button_1" style="background-color:rgb(40,40,44);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_1" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-face-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_1' onclick="window.location.href='http://localhost:8080/main'" ></button>
+               <button id='button_1' onclick="window.location.href='http://192.168.0.35:8080/main'" ></button>
 
 <!--               <label for="button_2" style="background-color:rgb(20,20,22);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_2" style="background-color:rgb(20,20,22);background-image: url({{url_for('static', filename='img/icon-palette-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://localhost:8080/color_recommnd'"></button>
+               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.35:8080/color_recommnd'"></button>
 
 <!--               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url(img/icon-clothes-80-2.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_3" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-clothes-80-2.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://localhost:8080/musinsa_recommnd'"></button>
+               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.35:8080/musinsa_recommnd'"></button>
             </div>
          </footer>
 

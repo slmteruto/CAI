@@ -277,6 +277,10 @@
 
 /* 닉네임 받아오기 ? http://tcpschool.com/javascript/js_bom_dialogBox */
 		</style>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+				integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+				crossorigin="anonymous"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/menuThree16.js') }}"></script>
 	</head>
 	<body>
 
@@ -287,15 +291,9 @@
 				<div id="jb-wide-contents">
 
 					<div class="filebox">
-						<!--
-						<form name="" id="" action="" method="" enctype="">
-						-->
-							<input type="text" id="input" placeholder="무신사 닉네임"/>
-							<label for="bt_select">조회하기</label>
-							<input type="button" id='bt_select' name="select" onclick="input()"/>
-						<!--
-						</form>
-						-->
+						<input type="text" id="input_nick" placeholder="무신사 닉네임" name="input_nick"/>
+						<label for="bt_select">조회하기</label>
+						<input type="button" id="bt_select" name="bt_select"/>
 					</div>
 
 				</div>
@@ -307,15 +305,15 @@
 					<div class="recommend_layout">
 					<!-- db에서 blob?말고 이미지 링크로 받아서 넘길 수 있게 하겠씁니다 :) -->
 					<!-- 팔레트 색 상품 이미지링크 받아오기 -->
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="brt_rcmd1" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="brt_rcmd2" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="brt_rcmd3" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
 					</div>
 					<div class="recommend_layout">
 					<!-- 팔레트 색 상품 이미지링크 받아오기 -->
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="brt_rcmd4" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="brt_rcmd5" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="brt_rcmd6" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
 					</div>
 				</div>
 
@@ -326,15 +324,15 @@
 					<hr>
 					<div class="recommend_layout">
 					<!-- 팔레트 색 상품 이미지링크 받아오기 -->
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="hrmn_rcmd1" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="hrmn_rcmd2" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="hrmn_rcmd3" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
 					</div>
 					<div class="recommend_layout">
 					<!-- 팔레트 색 상품 이미지링크 받아오기 -->
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="hrmn_rcmd4" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="hrmn_rcmd5" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="hrmn_rcmd6" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
 					</div>
 				</div>
 
@@ -344,15 +342,15 @@
 					<hr>
 					<div class="recommend_layout">
 					<!-- 주요구매 색 상품 이미지링크 받아오기 -->
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="pur_rcmd1" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="pur_rcmd2" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="pur_rcmd3" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
 					</div>
 					<div class="recommend_layout">
 					<!-- 주요구매 색 상품 이미지링크 받아오기 -->
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
-						<div class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="pur_rcmd4" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="pur_rcmd5" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
+						<div id="pur_rcmd6" class="recommend_prdt" style="background-image:url(https://image.msscdn.net/images/goods_img/20170922/640839/640839_5_500.jpg);"></div>
 					</div>
 				</div>
 
@@ -372,15 +370,15 @@
             <div class="buttonbox">
 <!--               <label for="button_1" style="background-color:rgb(40,40,44);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_1" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-face-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_1' onclick="window.location.href='http://localhost:8080/main'" ></button>
+               <button id='button_1' onclick="window.location.href='http://192.168.0.35:8080/main'" ></button>
 
 <!--               <label for="button_2" style="background-color:rgb(40,40,44);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_2" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-palette-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://localhost:8080/color_recommnd'"></button>
+               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.35:8080/color_recommnd'"></button>
 
 <!--               <label for="button_3" style="background-color:rgb(20,20,22);background-image: url(img/icon-clothes-80-2.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_3" style="background-color:rgb(20,20,22);background-image: url({{url_for('static', filename='img/icon-clothes-80-2.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://localhost:8080/musinsa_recommnd'"></button>
+               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.35:8080/musinsa_recommnd'"></button>
             </div>
          </footer>
 
