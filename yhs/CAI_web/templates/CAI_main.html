@@ -241,14 +241,14 @@
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 				integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 				crossorigin="anonymous"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='js/main32.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/main34.js') }}"></script>
 	</head>
 	<body>
 		<div id="jb-container">
 			<fieldset id="jb-layer">
 				<!-- 사진 선택 & 타입 보기 버튼 넣기-->
 				<div id="jb-wide-contents">
-					<form name = "img_type_summary" id="file_form" action = "http://192.168.0.35:8080/upload" method = "POST" enctype="multipart/form-data">
+					<form name = "img_type_summary" id="file_form" action = "http://13.209.69.114:8080/upload" method = "POST" enctype="multipart/form-data">
 						<div class="filebox">
 							<label for="ex_file">사진선택</label>
 							<input type='file' id='ex_file' name='file' onchange="readURL(this);"/>
@@ -302,7 +302,7 @@
             <div class="buttonbox">
 <!--               <label for="button_1" style="background-color:rgb(20,20,22);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_1" style="background-color:rgb(20,20,22);background-image: url({{url_for('static', filename='img/icon-face-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_1' onclick="window.location.href='http://192.168.0.35:8080/main'" ></button>
+               <button id='button_1' onclick="window.location.href='http://13.209.69.114:8080/main'" ></button>
 
 <!--               <label for="button_2" style="background-color:rgb(40,40,44);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_2" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-palette-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
