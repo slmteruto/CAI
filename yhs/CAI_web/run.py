@@ -6,10 +6,9 @@ import pymysql
 import cv2 as cv
 import colour
 import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+import argparse
 
-import sys
-
-sys.path.append("F:\\hs\\pythonwork\\project\\jay")
 import CAIProjectModule
 
 from io import BytesIO
@@ -22,7 +21,8 @@ app.secret_key = b'caicai123123'
 def musin_rcmnd(facehsv, nick):
     hsv = facehsv
     user_nick = nick
-    database = {"host": "192.168.0.41", "user": "cai", "passwd": "1234", "db": "final"}
+    # database = {"host": "192.168.0.41", "user": "cai", "passwd": "1234", "db": "final"}
+    database = {"host":"ec2-13-209-69-114.ap-northeast-2.compute.amazonaws.com", "user":"cai", "passwd":"1234", "db":"final"}
     cursor = CD.connectDB(database)
     HSV = CD.select_prdt_color(cursor)
 
@@ -57,7 +57,8 @@ def type_classifier(img):
 
 
 def connect_db():
-    config = {"host": "192.168.0.41", "user": "cai", "passwd": "1234", "db": "final"}
+    # config = {"host": "192.168.0.41", "user": "cai", "passwd": "1234", "db": "final"}
+    config = {"host":"ec2-13-209-69-114.ap-northeast-2.compute.amazonaws.com", "user":"cai", "passwd":"1234", "db":"final"}
     conn = pymysql.connect(**config)
     return conn
 
@@ -91,11 +92,11 @@ def img_db_load():
 ## 얼굴 인식
 def face_detection(img):
     origin_img = img
-
+    print(origin_img.shape)
     faceCascade = cv.CascadeClassifier('data/haarcascade_frontface.xml')
 
     gray = cv.cvtColor(origin_img, cv.COLOR_BGR2GRAY)
-    faces = faceCascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5, minSize=(30, 30))
+    faces = faceCascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
 
     face_cropped = None
 
@@ -124,10 +125,128 @@ def face_detection(img):
 
     return face_cropped
 
+############################################################################# Skin
+
+def color_ratio(clt) :
+    numLabels = np.arange(0, len(np.unique(clt.labels_))+1)
+    (hist, _) = np.histogram(clt.labels_, bins=numLabels)
+    hist = hist.astype("float")
+    hist /= hist.sum()
+    return hist
+
+# k=5이므로 다섯개의 영역에 얼마만큼의 퍼센테이지가 차지되었는지 return된다.
+
+def plot_colors(hist, centroids):
+    bar = np.zeros((50, 300, 3), dtype = "uint8")
+    startX = 0
+
+    for (percent, color) in zip(hist, centroids):
+#         print("색깔 ",color)
+#         print("비율 : ", percent)
+        endX = startX + (percent * 300)
+        cv.rectangle(bar, (int(startX), 0), (int(endX), 50),
+            color.astype("uint8").tolist(), -1)
+        startX = endX
+    return bar
+
+
+
+def skin_extract(img):
+    lower = np.array([0, 48, 80], dtype="uint8")
+    upper = np.array([20, 255, 255], dtype="uint8")
+
+    converted = cv.cvtColor(img, cv.COLOR_BGR2HSV)
+    skinMask = cv.inRange(converted, lower, upper)
+
+    kernel = cv.getStructuringElement(cv.MORPH_ELLIPSE, (11, 11))
+    skinMask = cv.erode(skinMask, kernel, iterations=2)
+    skinMask = cv.dilate(skinMask, kernel, iterations=2)
+
+    skinMask = cv.GaussianBlur(skinMask, (3, 3), 0)
+    skin = cv.bitwise_and(img, img, mask=skinMask)
+
+    result = skin
+
+
+    img = cv.cvtColor(result, cv.COLOR_BGR2HLS)
+    skin_img = img
+    temp_img = cv.cvtColor(img, cv.COLOR_HLS2RGB)
+
+    h, w, c = img.shape
+
+    for i in range(h):
+        for j in range(w):
+            H = img[i][j][0]
+            L = img[i][j][1]
+            S = img[i][j][2]
+
+            R = temp_img[i][j][0]
+            G = temp_img[i][j][1]
+            B = temp_img[i][j][2]
+
+            LS_ratio = L / S
+            skin_pixel = bool((S >= 50) and (LS_ratio > 0.5) and (LS_ratio < 3.0) and ((H <= 25) or (H >= 165)))
+            temp_pixel = bool((R == G) and (G == B) and (R >= 220))
+
+            if skin_pixel:
+                if temp_pixel:
+                    skin_img[i][j][0] = 0
+                    skin_img[i][j][1] = 0
+                    skin_img[i][j][2] = 0
+                else:
+                    pass
+            else:
+                skin_img[i][j][0] = 0
+                skin_img[i][j][1] = 0
+                skin_img[i][j][2] = 0
+
+    skin_img = cv.cvtColor(skin_img, cv.COLOR_HLS2BGR)
+    for i in range(h):
+        for j in range(w):
+            B = skin_img[i][j][0]
+            G = skin_img[i][j][1]
+            R = skin_img[i][j][2]
+
+            bg_pixel = bool(B == 0 and G == 0 and R == 0)
+
+            if bg_pixel:
+                skin_img[i][j][0] = 255
+                skin_img[i][j][1] = 255
+                skin_img[i][j][2] = 255
+            else:
+                pass
+
+    cvt_img = cv.cvtColor(skin_img, cv.COLOR_BGR2RGB)
+    cvt_img = cvt_img.reshape((cvt_img.shape[0] * cvt_img.shape[1], 3))
+    k = 20
+    clt = KMeans(n_clusters=k)
+    clt.fit(cvt_img)
+
+    hist = color_ratio(clt)
+    temp = np.array(clt.cluster_centers_)
+
+    # hist에서 높은 값 제거, cluster_centers_에서도 제거)
+    del_index = hist.argmax()
+    hist = np.delete(hist, del_index)
+    temp = np.delete(temp, del_index, 0)
+
+    # hist에서 제일 낮은 값 제거, cluster_centers_ 에서도 제거
+    for i in range(14) :
+        del_index = np.argmin(hist)
+        hist = np.delete(hist, del_index)
+        temp = np.delete(temp, del_index, 0)
+
+    # 비율 재조정
+    hist = hist / hist.sum()
+
+    bar = plot_colors(hist, temp)
+
+
+    return bar
 
 ## color convert
 def color_convert(img):
-    img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+    # img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
     # plt.imshow(img)
     # plt.show()
     sum = 0
@@ -341,6 +460,7 @@ def upload_file():
         img_pil = Image.open(f).convert("RGB")  ## PIL Image
         img_cv = np.array(img_pil)
         img_cv = img_cv[:, :, ::-1].copy()  ## RGB  ## CV Image
+
         face_img = face_detection(img_cv)
         # img_cv_bgr = cv.cvtColor(img_cv, cv.COLOR_RGB2BGR)
         # face_img = face_detection(img_cv_bgr)
@@ -355,8 +475,10 @@ def upload_file():
             print(success)
             if success:
                 # img_db_save(img_cv_binary.tostring())
-                hsv, rgb = color_convert(face_img)
+                ext_img = skin_extract(face_img)
+                hsv, rgb = color_convert(ext_img)
                 result = color_classifier(hsv)  # <<<<<<<<<<<---------------------------algorithm 수정부위
+
 
         print(result)
         print(color_type[result])
