@@ -3,245 +3,14 @@
 	<head>
 		<meta charset="utf-8">
 		<title>CAI Project</title>
-		<style>
-/* 베이스 폼 */
-		  body {
-			background-color: rgb(20, 20, 22);
-			background-repeat: no-repeat;
-			color: white;
-			font-family: Vernada;
-			font-size: 215%;
-		  }
-		  body::-webkit-scrollbar{
-		  	display:none;
-		  }
-		  footer{
-			position:fixed;
-			margin: auto;
-			bottom:0px;
-			width:100%;
-		  }
-		
-/* 폰트 디자인(정렬 등) */
-		  h1  { font-family: Viner Hand ITC;
-				text-align: center; }
-		  h2  { text-align: center; }
-		  h5  { text-align: left; }
-		  h6  { font-size: 50%;
-				text-align: left; }
-		  p   { text-align: left; }
-		  img { margin: 7%; }
-		  
-/* 레이아웃 */
-		  #jb-header {
-		    position: fixed;
-			top: 0px;
-			width: 100%;
-			background-color: rgb(40,40,44);
-			padding: 0px;
-			padding-top: 1%;
-			padding-bottom: .1%;
-			margin-left: auto;
-			margin-right: auto;
-			margin-bottom: 3%;
-			border: .5px solid rgb(20,20,22,0);
-		  }
-		  #jb-container {
-		    position: absolute;
-		    top: 250px;
-		    width: 100%;
-			margin: auto;
-			padding: 0;
-		  }
-		  #jb-layer {
-			text-align : center;
-			padding: 3%;
-			margin: 0px auto;
-			margin-bottom: 1%;
-			border: .5px solid rgb(20,20,22,0);
-		  }
-		  #jb-wide-contents {
-			padding: 3%;
-			margin-bottom: 1%;
-			border: .5px solid rgb(20,20,22,0);
-		  }
-
-		  #jb-wide-contents p{
-			padding-left:7%;
-			margin-bottom: 5%;
-		  }
-		  #jb-sidebar1 {
-			width: 200px;
-			padding: 20px;
-			/*margin: 10px;*/
-			float: right;
-			border: .5px solid rgb(20,20,22,0);
-		  }
-		  #jb-left-contents {
-			width: 300px;
-			/*width: 160px;*/
-			padding: 20px;
-			margin-right: 0px;
-			margin-bottom: 20px;
-			float: left;
-			border: .5px solid rgb(20,20,22,0);
-		  }
-		  #jb-right-contents {
-			width: 300px;
-			/*width: 160px;*/
-			padding: 20px;
-			margin-left: 0px;
-			margin-bottom: 20px;
-			float: right;
-			border: .5px solid rgb(20,20,22,0);
-		  }
-		  #jb-content2 {
-			width: 450px;
-			padding: 20px;
-			margin-bottom: 20px;
-			float: left;
-			border: .5px solid rgb(20,20,22,0);
-		  }
-		  
-		  
-/* 팔레트 레이아웃 */
-		  .palette_layout {
-			display: flex;
-			height: 185px;
-			padding: 0px;
-			padding-left: 0px;
-			padding-right: 0px;
-			margin-left : auto;
-			margin-right : auto;
-			margin-top: 0px;
-			margin-bottom: 20px;
-		  }
-		  .palette_color {
-			display: inline;
-			width : 11%;
-			/*height: 200%;*/
-			margin-left : auto;
-			margin-right : auto;
-			vertical-align: text-bottom;
-			border: 10px solid rgb(250, 250, 250);
-		  }
-		  .palette_color h6 {
-			display: inline-block;
-			width: 100%;
-			float: left;
-			padding-top: 5%;
-			padding-bottom: 5%;
-			margin: auto;
-			margin-top: -3px;
-			text-align: left;
-		  }
-		  
-/* 버튼 디자인 (https://webdir.tistory.com/435)*/
-		  .filebox label {
-			display: inline-block;
-			width: 25%;
-			height: 25%;
-			padding: .5em .75em;
-			margin-top: -3%;
-			margin-bottom: 0;
-			margin-left: 7%;
-			margin-right: 7%;
-			font-size:inherit;
-			line-height: normal;
-			vertical-align: middle;
-			background-color: rgb(150, 35, 198);
-			cursor: pointer;
-			border-radius: .25em; /* 테두리 라운딩*/
-		  }
-		  .filebox input[type="file"] { /* 파일 필드 숨기기 */
-			position: absolute;
-			width: 1px;
-			height: 1px;
-			padding: 0;
-			margin: -1px;
-			overflow: hidden;
-			clip:rect(0,0,0,0);
-		  }
-		  .filebox input[type="button"] { /* 파일 필드 숨기기 */
-			position: absolute;
-			width: 1px;
-			height: 1px;
-			padding: 0;
-			overflow: hidden;
-			clip:rect(0,0,0,0);
-			border: 0;
-		  }
-		  .buttonbox label {
-			display: inline-block;
-			width: 30.3%;
-			height: 55px;
-			padding: .7em .5em;
-			margin: -1px;
-			margin-left: -0.6%;
-			margin-right: -0.6%;
-			text-align: center;
-			font-size: 100%;
-			line-height: normal;
-			vertical-align: middle;
-			cursor: pointer;
-			background-color:rgb(40,40,44);
-			background-repeat:no-repeat;
-			background-position: center;
-		  }
-		  .buttonbox button { /* 파일 필드 숨기기 */
-			position: absolute;
-			width: 1px;
-			height: 1px;
-			padding: 0;
-			margin: auto;
-			overflow: hidden;
-			clip:rect(0,0,0,0);
-			border: 0px;
-		  }
-
-
-/* 레이아웃 겹치게 테스트 */
-		  .personal_layout {
-			display: inline;
-			padding: 0px;
-			padding-left: 0px;
-			padding-right: 0px;
-			margin-left : auto;
-			margin-right : auto;
-			margin-top: 0px;
-			margin-bottom: 20px;
-		  }
-		  .personal_layout img {
-			width: 60%;
-			padding-top: 0;
-			padding-bottom: 0;
-			margin: auto;
-			margin-top: -8px;
-			/*border: 0.5px solid rgb(250,250,250);*/
-		  }
-
-		  #image_section {
-		  	margin-left:auto;
-		  	margin-right:auto;
-		  	display:none;
-		  }
-
-		  #pc-type-result {
-		  	display:none;
-		  }
-
-		  #jb-wide-contents-type{
-		  	display:none;
-			padding: 3%;
-			margin-bottom: 1%;
-			border: .5px solid rgb(20,20,22,0);
-		  }
-		</style>
-
+		<link id="cssLink" rel="stylesheet" href="{{ url_for('static', filename='css/main_css1.css') }}">
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 				integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 				crossorigin="anonymous"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='js/main34.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/main49.js') }}"></script>
+		<style>
+
+		</style>
 	</head>
 	<body>
 		<div id="jb-container">
@@ -250,18 +19,20 @@
 				<div id="jb-wide-contents">
 					<form name = "img_type_summary" id="file_form" action = "http://13.209.69.114:8080/upload" method = "POST" enctype="multipart/form-data">
 						<div class="filebox">
-							<label for="ex_file">사진선택</label>
+							<label class="lb_temp1" for="ex_file">사진선택</label>
 							<input type='file' id='ex_file' name='file' onchange="readURL(this);"/>
-							<label for="show_type">타입보기</label>
+							<label class="lb_temp2" for="show_type">타입보기</label>
 							<input type="button" id='show_type' name="show_type"/>
 						</div>
-						
+
 						<h2 style="margin-bottom: -1%;">Guide</h2>
-						<p>
-						1. 흰색 배경의 형광등 아래에서 찍은 사진</br>
-						2. 안경 등으로 얼굴이 가려지지 않은 사진 권장</br>
-						3. 주의 사항</br>
-						</p>						
+						<div class="temp">
+							<p>
+							1. 흰색 배경의 형광등 아래에서 찍은 사진 권장</br>
+							2. 안경 등으로 얼굴이 가려지지 않은 사진 권장</br>
+							3. 모바일이 아닐 경우 창크기를 최대로 해주세요.</br>
+							</p>
+						</div>
 					</form>
 					
 					<!-- 얼굴 사진 리사이징 띄우기
@@ -273,9 +44,9 @@
 					<!-- 얼굴 측색 RGB 받아오기 -->
 					<!-- 퍼스널 컬러 타입 받아오기 -->
 					<div id="jb-wide-contents-type" style="background-color:rgb(245, 215, 200)">
-						<hr color="white" size=5 style="margin-top: -.5%;"/>
+						<hr color="white" size=5 style="margin-top: 50px;"/>
 						<h2 id="pc-type-result-span" style="letter-spacing:4px">WARM SPRING BRIGHT</h2>
-						<hr color="white" size=5 style="margin-bottom: -.5%;"/>
+						<hr color="white" size=5 style="margin-bottom: -50px;"/>
 					</div>
 					
 					<!-- 머신러닝 정확도 (or) 랜덤함수로 퍼센티지 갖고 오기 -->
@@ -295,7 +66,9 @@
 		</div>
 
 		<div id="jb-header">
-			<h1>CAI PROJECT</h1>
+			<div>
+				<h1>CAI PROJECT</h1>
+			</div>
 		</div>
 
          <footer>
