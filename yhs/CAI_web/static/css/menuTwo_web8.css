@@ -1,0 +1,271 @@
+body {
+    background-color: rgb(20, 20, 22);
+    background-repeat: no-repeat;
+    color: white;
+    font-family: Vernada;
+    font-size: 215%;
+    margin:0;
+}
+
+body::-webkit-scrollbar{
+    display:none;
+}
+
+footer{
+    position:fixed;
+    margin: auto;
+    bottom:0px;
+    width:110%;
+    height:80px;
+}
+
+#jb-header {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height:112px;
+    background-color: rgb(40,40,44);
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:0px;
+    border: .5px solid rgb(20,20,22,0);
+}
+
+#jb-header div{
+    width:1165px;
+    height:65px;
+    font-size:24px;
+    margin:0 auto;
+}
+
+#jb-header div h1 {
+    font-family: Viner Hand ITC;
+    text-align: center;
+}
+
+#jb-container {
+    position: absolute;
+    top: 150px;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+}
+
+#jb-layer {
+    width:1700px;
+    text-align : center;
+    margin: 0px auto;
+    border: .5px solid rgb(20,20,22,0);
+
+}
+
+#jb-wide-contents {
+    width: 40%;
+    margin-left:50px;
+    float:left;
+}
+
+#jb-wide-contents-wrap {
+    width:40%;
+    margin-top:50px;
+    margin-bottom:50px;
+    margin-right:50px;
+    border: .5px solid rgb(20,20,22,0);
+    float:right;
+}
+
+
+#jb-wide-content {
+    font-size: 25px;
+    margin-bottom:20px;
+}
+
+
+#jb-sidebar1 {
+    width: 200px;
+    padding: 20px;
+    /*margin: 10px;*/
+    float: right;
+    border: .5px solid rgb(20,20,22,0);
+}
+
+#jb-left-contents {
+    width: 300px;
+    /*width: 160px;*/
+    padding: 20px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    float: left;
+    border: .5px solid #bcbcbc;
+}
+
+#jb-right-contents {
+    width: 300px;
+    /*width: 160px;*/
+    padding: 20px;
+    margin-left: 0px;
+    margin-bottom: 20px;
+    float: right;
+    border: .5px solid #bcbcbc;
+}
+
+#jb-content2 {
+    width: 450px;
+    padding: 20px;
+    margin-bottom: 20px;
+    float: left;
+    border: .5px solid #bcbcbc;
+}
+
+
+/* 팔레트 레이아웃 */
+.palette_layout {
+    display: flex;
+    height: 200px;
+    padding: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left : auto;
+    margin-right : auto;
+    margin-top: 0px;
+    margin-bottom: 100px;
+}
+
+.palette_color {
+    display: inline;
+    width : 13.5%;
+    margin-left : auto;
+    margin-right : auto;
+    vertical-align: text-bottom;
+    border: 7px solid rgb(250, 250, 250);
+}
+
+.palette_color h6 {
+    display: inline-block;
+    width: 100%;
+    float: left;
+    margin: auto;
+    margin-top: -3px;
+    text-align: left;
+    font-size:0.4em;
+}
+
+.filebox{
+
+    height:100px;
+    margin-bottom:50px;
+    margin: 0 auto;
+}
+
+/* 버튼 디자인 (https://webdir.tistory.com/435)*/
+.filebox label {
+    display: inline-block;
+    height: 50px;
+    margin-bottom: 0;
+    font-size:24px;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: rgb(60,60,66);
+    cursor: pointer;
+    border-radius: .25em; /* 테두리 라운딩*/
+}
+
+.filebox input[type="file"] { /* 파일 필드 숨기기 */
+    position: absolute;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip:rect(0,0,0,0);
+}
+
+  .filebox input[type="button"] { /* 파일 필드 숨기기 */
+    position: absolute;
+    padding: 0;
+    overflow: hidden;
+    clip:rect(0,0,0,0);
+    border: 0;
+}
+
+.lb_temp1 {
+    width: 251px;
+    vertical-align: middle;
+    margin-right:32px;
+}
+
+.lb_temp2 {
+    width: 250px;
+    vertical-align: middle;
+    margin-left:30px;
+}
+
+.buttonbox {
+    height: 100%;
+}
+
+.buttonbox label {
+    display: inline-block;
+    width: 660px;
+    height: 100%;
+    margin: -1px;
+    margin-left: -0.6%;
+    margin-right: -0.6%;
+    text-align: center;
+    font-size: 100%;
+    line-height: normal;
+    vertical-align: middle;
+    cursor: pointer;
+    padding-top:0px;
+    background-size: auto 50%;
+}
+
+.buttonbox button { /* 파일 필드 숨기기 */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: auto;
+    overflow: hidden;
+    clip:rect(0,0,0,0);
+    border: 0px;
+}
+
+
+/* 레이아웃 겹치게 테스트 */
+.personal_layout {
+
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left : auto;
+    margin-right : auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.personal_layout img {
+    display:block;
+    margin:0 auto;
+    height:270px;
+    width:auto;
+
+}
+
+#model_m {
+    display:block;
+}
+
+#model_w {
+    display:none;
+}
+
+
+#img_bottom_m{
+    background-color:rgb(255, 255, 255);
+    margin-top:-17px;
+}
+
+#img_bottom_w{
+    background-color:rgb(255, 255, 255);
+    margin-top:-17px;
+}

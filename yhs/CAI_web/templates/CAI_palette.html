@@ -3,230 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>CAI Project - palette</title>
-		<style>
-/* 베이스 폼 */
-		  body {
-			background-color: rgb(20, 20, 22);
-			background-repeat: no-repeat;
-			color: white;
-			font-family: Vernada;
-			font-size: 215%;
-		  }
-		  body::-webkit-scrollbar{
-		  	display:none;
-		  }
-		  footer{
-			position:fixed;
-			margin: auto;
-			bottom:0px;
-			width:100%;
-		  }
-
-/* 폰트 디자인(정렬 등) */
-		  h1  { font-family: Viner Hand ITC;
-				text-align: center; }
-		  h2  { text-align: center; }
-		  h5  { text-align: left; }
-		  h6  { font-size: 50%;
-				text-align: left; }
-		  p   { text-align: left; }
-		  img { margin: 7%; }
-
-/* 레이아웃 */
-		  #jb-header {
-		    position: fixed;
-			top: 0px;
-			width: 100%;
-			background-color: rgb(40,40,44);
-			padding: 0px;
-			padding-top: 1%;
-			padding-bottom: .1%;
-			margin-left: auto;
-			margin-right: auto;
-			margin-bottom: 3%;
-			border: .5px solid rgb(20,20,22,0);
-		  }
-		  #jb-container {
-		    position: absolute;
-		    top: 250px;
-		    width: 100%;
-			margin: auto;
-			padding: 0;
-		  }
-		  #jb-layer {
-			text-align : center;
-			padding: 3%;
-			margin: 0px auto;
-			margin-bottom: 1%;
-			border: .5px solid rgb(20,20,22,0);
-		  }
-		  #jb-wide-contents {
-			padding: 3%;
-			margin-bottom: 1%;
-			border: .5px solid rgb(20,20,22,0);
-		  }
-		  #jb-wide-contents p{
-			padding-left:10%;
-			padding-right:10%;
-			margin-top: 5%;
-			margin-bottom: 5%;
-		  }
-		  #jb-sidebar1 {
-			width: 200px;
-			padding: 20px;
-			/*margin: 10px;*/
-			float: right;
-			border: .5px solid rgb(20,20,22,0);
-		  }
-		  #jb-left-contents {
-			width: 300px;
-			/*width: 160px;*/
-			padding: 20px;
-			margin-right: 0px;
-			margin-bottom: 20px;
-			float: left;
-			border: .5px solid #bcbcbc;
-		  }
-		  #jb-right-contents {
-			width: 300px;
-			/*width: 160px;*/
-			padding: 20px;
-			margin-left: 0px;
-			margin-bottom: 20px;
-			float: right;
-			border: .5px solid #bcbcbc;
-		  }
-		  #jb-content2 {
-			width: 450px;
-			padding: 20px;
-			margin-bottom: 20px;
-			float: left;
-			border: .5px solid #bcbcbc;
-		  }
-		  
-		  
-/* 팔레트 레이아웃 */
-		  .palette_layout {
-			display: flex;
-			height: 200px;
-			padding: 0px;
-			padding-left: 0px;
-			padding-right: 0px;
-			margin-left : auto;
-			margin-right : auto;
-			margin-top: 0px;
-			margin-bottom: 20px;
-		  }
-		  .palette_color {
-			display: inline;
-			width : 13.5%;
-			margin-left : auto;
-			margin-right : auto;
-			vertical-align: text-bottom;
-			border: 7px solid rgb(250, 250, 250);
-		  }
-		  .palette_color h6 {
-			display: inline-block;
-			width: 100%;
-			float: left;
-			padding-top: 5%;
-			padding-bottom: 5%;
-			margin: auto;
-			margin-top: -3px;
-			/*margin-left: -0.5%;*/
-			text-align: left;
-		  }
-		  
-/* 버튼 디자인 (https://webdir.tistory.com/435)*/
-		  .filebox label {
-			display: inline-block;
-			width: 25%;
-			height: 50px;
-			padding: .5em .75em;
-			margin-top: -3%;
-			margin-bottom: 0;
-			margin-left: 7%;
-			margin-right: 7%;
-			font-size:inherit;
-			line-height: normal;
-			vertical-align: middle;
-			background-color: rgb(150, 35, 198);
-			cursor: pointer;
-			border-radius: .25em; /* 테두리 라운딩*/
-		  }
-		  .filebox input[type="file"] { /* 파일 필드 숨기기 */
-			position: absolute;
-			width: 1px;
-			height: 1px;
-			padding: 0;
-			margin: -1px;
-			overflow: hidden;
-			clip:rect(0,0,0,0);
-		  }
-		  .filebox input[type="button"] { /* 파일 필드 숨기기 */
-			position: absolute;
-			width: 1px;
-			height: 1px;
-			padding: 0;
-			overflow: hidden;
-			clip:rect(0,0,0,0);
-			border: 0;
-		  }
-		  .buttonbox label {
-			display: inline-block;
-			width: 30.3%;
-			height: 60px;
-			padding: .7em .5em;
-			margin: -1px;
-			margin-left: -0.6%;
-			margin-right: -0.6%;
-			text-align: center;
-			font-size: 100%;
-			line-height: normal;
-			vertical-align: middle;
-			cursor: pointer;
-		  }
-		  .buttonbox button { /* 파일 필드 숨기기 */
-			position: absolute;
-			width: 1px;
-			height: 1px;
-			padding: 0;
-			margin: auto;
-			overflow: hidden;
-			clip:rect(0,0,0,0);
-			border: 0px;
-		  }
-
-
-/* 레이아웃 겹치게 테스트 */
-		  .personal_layout {
-			display: inline;
-			padding: 0px;
-			padding-left: 5px;
-			padding-right: 5px;
-			margin-left : auto;
-			margin-right : auto;
-			margin-top: 0;
-			margin-bottom: 0;
-		  }
-		  .personal_layout img {
-			width: 50%;
-			padding-top: 0;
-			padding-bottom: 0;
-			margin: auto;
-			margin-top: -8px;
-			/*border: 0.5px solid rgb(250,250,250);*/
-		  }
-
-		  #model_m {
-		  	display:block;
-		  }
-		  #model_w {
-		  	display:none;
-		  }
-
-		</style>
-
+		<link id="cssLink" rel="stylesheet" href="{{url_for('static', filename='css/menuTwo_css2.css')}}">
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 				integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 				crossorigin="anonymous"></script>
@@ -234,49 +11,45 @@
 		<script>
 			var data = {{ data|safe }};
 		</script>
-		<script type="text/javascript" src="{{ url_for('static', filename='js/menuTwo30.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/menuTwo42.js') }}"></script>
+		<style>
+
+		</style>
+
 	</head>
 	<body onload="bt_male_func()">
 		<div id="jb-container">
 <!-- 팔레트 폼 -->
-			
+
 			<fieldset id="jb-layer">
 				<div id="jb-wide-contents">
 					<div class="filebox">
-						<label for="bt_male">남자</label>
+						<label class="lb_temp1" for="bt_male">남자</label>
 						<input type="button" id='bt_male' name="Male" onclick="bt_male_func()"/>
-						<label for="bt_female">여자</label>
+						<label class="lb_temp2" for="bt_female">여자</label>
 						<input type="button" id='bt_female' name="Female" onclick="bt_female_func()"/>
 						<p></p>
 					</div>
 					
 					
-					<div class="personal_layout" id="model_m" style="margin-top: 7%;">
-<!--					<div class="personal_layout" id="model_m" style="display:none; margin-top: 7%;">-->
-						<!-- 얼굴 측색 RGB 받아오기 -->
-<!--						<img src="img/personal-test-top_m.png" style="background-color:rgb(245, 215, 200)"/>-->
+					<div class="personal_layout" id="model_m">
+<!--						<img src="../static/img/personal-test-top_m.png" style="background-color:rgb(245, 215, 200)"/>-->
 						<img id="img_top_m" src="{{url_for('static', filename='img/personal-test-top_m.png')}}" style="background-color:rgb(245, 215, 200)"/>
-
-						<!-- 클릭한 팔레트의 색 받아오기 -->
-<!--						<img src="img/personal-test-bottom_m.png" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>-->
-						<img id="img_bottom_m" src="{{url_for('static', filename='img/personal-test-bottom_m.png')}}" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>
+<!--						<img src="../static/img/personal-test-bottom_m.png" style="background-color:rgb(20, 20, 40); margin-top:-17px;"/>-->
+						<img id="img_bottom_m" src="{{url_for('static', filename='img/personal-test-bottom_m.png')}}"/>
 					</div>
 					
-<!--					<div class="personal_layout" id="model_w" style="display:block; margin-top: 7%;">-->
-					<div class="personal_layout" id="model_w" style="margin-top: 7%;">
-						<!-- 얼굴 측색 RGB 받아오기 -->
+					<div class="personal_layout" id="model_w">
 <!--						<img src="img/personal-test-top.png" style="background-color:rgb(245, 215, 200)"/>-->
 						<img id="img_top_w" src="{{url_for('static', filename='img/personal-test-top.png')}}" style="background-color:rgb(245, 215, 200)"/>
-						<!-- 클릭한 팔레트의 색 받아오기 -->
-<!--						<img src="img/personal-test-bottom.png" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>-->
-						<img id="img_bottom_w" src="{{url_for('static', filename='img/personal-test-bottom.png')}}" style="background-color:rgb(20, 20, 40); margin-top:-3.2%;"/>
+<!--						<img src="img/personal-test-bottom.png" style="background-color:rgb(20, 20, 40);"/>-->
+						<img id="img_bottom_w" src="{{url_for('static', filename='img/personal-test-bottom.png')}}"/>
 					</div>
 					
 					
 				</div>
-				<div id="jb-wide-contents">
-					<div id="jb-wide-contents" style="margin-bottom: -1%; margin-top:-2%;">
-					- Bright Palette -</div>
+				<div id="jb-wide-contents-wrap">
+					<div id="jb-wide-content">- Bright Palette -</div>
 					<div class="palette_layout">
 						<div class="palette_color brt-blc1" style="background-color:rgb(15,65,69)">
 							<h6 style="background-color:rgb(250,250,250)">
@@ -311,8 +84,7 @@
 					</div>
 				
 				
-					<div id="jb-wide-contents" style="margin-bottom: -1%; margin-top:-3%;">
-					- Harmony Palette -</div>
+					<div id="jb-wide-content">- Harmony Palette -</div>
 					<div class="palette_layout">
 						<div class="palette_color hmny-blc1" style="background-color:rgb(15,65,69)">
 							<h6 style="background-color:rgb(250,250,250)">
@@ -355,22 +127,24 @@
 
 
 		<div id="jb-header">
-			<h1>CAI PROJECT</h1>
+			<div>
+				<h1>CAI PROJECT</h1>
+			</div>
 		</div>
 
          <footer>
             <div class="buttonbox">
 <!--               <label for="button_1" style="background-color:rgb(40,40,44);background-image: url(img/icon-face-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_1" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-face-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_1' onclick="window.location.href='http://192.168.0.35:8080/main'" ></button>
+               <button id='button_1' onclick="window.location.href='http://13.209.69.114:8080/main'" ></button>
 
 <!--               <label for="button_2" style="background-color:rgb(20,20,22);background-image: url(img/icon-palette-80.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_2" style="background-color:rgb(20,20,22);background-image: url({{url_for('static', filename='img/icon-palette-80.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.35:8080/color_recommnd'"></button>
+               <button id='button_2' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://13.209.69.114:8080/color_recommnd'"></button>
 
 <!--               <label for="button_3" style="background-color:rgb(40,40,44);background-image: url(img/icon-clothes-80-2.png);background-repeat:no-repeat;background-position: center;"></label>-->
                <label for="button_3" style="background-color:rgb(40,40,44);background-image: url({{url_for('static', filename='img/icon-clothes-80-2.png')}});background-repeat:no-repeat;background-position: center;"></label>
-               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://192.168.0.35:8080/musinsa_recommnd'"></button>
+               <button id='button_3' class="button1 white selected" onfocus="this.blur();" onclick="window.location.href='http://13.209.69.114:8080/musinsa_recommnd'"></button>
             </div>
          </footer>
 

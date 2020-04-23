@@ -1,61 +1,95 @@
 # CAI(Color Artificial Intelligence)
-
+   
+---
+   
 ## [ About CAI Project ]
-`CAI`ëŠ” ê¸°ì¡´ì— ì‚¬ëžŒì˜ ëˆˆì— ì˜í•´ íŒë‹¨ë˜ì—ˆë˜ ì£¼ê´€ì ì¸ í¼ìŠ¤ë„ ì»¬ëŸ¬ íƒ€ìž…ì˜ ì§„ë‹¨ ê³¼ì •ì—ì„œ ì‚¬ìš©ìžê°€ ì—…ë¡œë“œí•œ **ì‚¬ì§„ì„ ë”¥ëŸ¬ë‹ ëª¨ë¸ì— ì ìš©**í•˜ì—¬ í¼ìŠ¤ë„ì»¬ëŸ¬ íƒ€ìž…ì„ ì§„ë‹¨í•˜ê³ , ì´ë¥¼ ê¸°ë°˜ìœ¼ë¡œ **í¼ìŠ¤ë„ì»¬ëŸ¬ íŒ”ë ˆíŠ¸ì™€ íŒ¨ì…˜ ì•„ì´í…œì„ ì¶”ì²œ**í•©ë‹ˆë‹¤.   
+`CAI`´Â »ç¿ëÀÚ°¡ ¾÷·ÎµåÇÑ »çÁøÀ» µö·¯´× ¸ðµ¨À» Àû¿ëÇÏ¿© ÆÛ½º³ÎÄÃ·¯ Å¸ÀÔÀ» Áø´ÜÇÏ°í, ÀÌ¸¦ ±â¹ÝÀ¸·Î ÆÛ½º³ÎÄÃ·¯ ÆÈ·¹Æ®¿Í ÆÐ¼Ç ¾ÆÀÌÅÛÀ» ÃßÃµÇÕ´Ï´Ù.   
+±âÁ¸¿¡ »ç¶÷ÀÇ ´«¿¡ ÀÇÇØ ÆÇ´ÜµÇ¾ú´ø ÁÖ°üÀûÀÎ ÆÛ½º³Î ÄÃ·¯ Å¸ÀÔÀÇ Áø´Ü °úÁ¤À» »ç¿ëÀÚ¿¡°Ô Á¦°ø¹ÞÀº »çÁøÀ» È­ÀÌÆ® ¹ë·±½º Á¶Á¤ µî ÀüÃ³¸®¸¦ °ÅÃÄ ¾òÀº Ãø»ö °á°ú·Î »ç¿ëÀÚÀÇ ÆÛ½º³Î ÄÃ·¯ Å¸ÀÔÀ» Áø´ÜÇÕ´Ï´Ù.   
    
-`Personal Color`ëŠ” ê°œì¸ ê³ ìœ ì˜ ì‹ ì²´ìƒ‰ì„ ì˜ë¯¸í•˜ë©°, ê°œì¸ì˜ íŠ¹ì„±ì„ ë¶„ì„í•˜ì—¬ í¼ìŠ¤ë„ì»¬ëŸ¬ íƒ€ìž… ë¶„ë¥˜ì²´ê³„ì˜ í•œ íƒ€ìž…ì— ê°œì¸ì„ ëŒ€ì‘ì‹œì¼œ ê·¸ì— ì¡°í™”ë¥¼ ì´ë£¨ëŠ” ìƒ‰ì„ ì§„ë‹¨í•˜ì—¬ ì í•©í•œ ë©”ì´í¬ì—…, í—¤ì–´, ì˜ìƒ ë“±ì˜ **ìƒ‰ì±„ ì´ë¯¸ì§€ë¥¼ ì—°ì¶œ**í•˜ëŠ” ì‹œìŠ¤í…œìž…ë‹ˆë‹¤.   
+`Personal Color`´Â °³ÀÎ °íÀ¯ÀÇ ½ÅÃ¼»öÀ» ÀÇ¹ÌÇÏ¸ç, °³ÀÎÀÇ Æ¯¼ºÀ» ºÐ¼®ÇÏ¿© ÆÛ½º³ÎÄÃ·¯ Å¸ÀÔ ºÐ·ùÃ¼°èÀÇ ÇÑ Å¸ÀÔ¿¡ °³ÀÎÀ» ´ëÀÀ½ÃÄÑ ±×¿¡ Á¶È­¸¦ ÀÌ·ç´Â »öÀ» Áø´ÜÇÏ¿© ÀûÇÕÇÑ ¸ÞÀÌÅ©¾÷, Çì¾î, ÀÇ»ó µîÀÇ »öÃ¤ ÀÌ¹ÌÁö¸¦ ¿¬ÃâÇÏ´Â ½Ã½ºÅÛÀÔ´Ï´Ù.   
    
+#### `< CAI Total Process >`   
+<img src="jay/img/total-process.jpg" width=100%>   
    
-## [ Deap Learning_Personal Color Type Classifier ]
-
+---
+   
+## [ Deep Learning_Personal Color Type Classifier ]
+   
 ### Dataset Creater
-- `Face Detection` : ì–¼êµ´ì¸ì‹, ì´ë¯¸ì§€ ë¦¬ì‚¬ì´ì§• (input image ì‚¬ì§„ 20ë§Œìž¥ / output image ì‚¬ì§„ 15ë§Œìž¥)   
+
+#### `< Face Detection >`   
 <img src="jay/img/face-detection.jpg" width=100%>   
-
-- `Skin Color Extraction` : ì•ˆë©´ ì¸¡ìƒ‰   
-    [* ì¸¡ìƒ‰ ë¶€ìœ„ ì„ ì •](url)   
+   
+#### `< Skin Color Extraction >`   
 <img src="jay/img/skin-color-extraction.jpg" width=100%>   
-
-- `Color System Converter` : ì¸¡ìƒ‰ ê²°ê³¼ ê¸°ì¤€ íƒ€ìž… ë¶„ë¥˜   
-	- BGR â†’ RGB â†’ HSV   
-- `Personal Color Type Classifier` : ë”¥ëŸ¬ë‹ìš© ë°ì´í„°ì…‹ ìƒì„±   
-    [* ìƒ‰ ë¶„ì„ ë‚´ìš©](url)   
+   
+#### `< Color System Converter & Type Classifier >`   
 <img src="jay/img/color-system-converter.jpg" width=100%>   
    
-### Model
-	[ í”„ë¡œì„¸ìŠ¤ ì´ë¯¸ì§€ ]   
+- `Face Detection`   
+	¾ó±¼ÀÎ½Ä, ÀÌ¹ÌÁö ¸®»çÀÌÂ¡ (input image ¾à 20¸¸Àå / output image ¾à 15¸¸Àå)   
+	ÀÎ¹° ÀÌ¹ÌÁö¸¦ ÀüÃ³¸® ÈÄ `Haar Cascade`¹æ½ÄÀ¸·Î ¾ó±¼ ÀÎ½Ä, ÅëÀÏµÈ »çÀÌÁî·Î ¾ó±¼ ÀÌ¹ÌÁö È¹µæ   
+- `Skin Color Extraction`   
+	Face DetectionÀ¸·Î ¾òÀº ¾ó±¼ ÀÌ¹ÌÁö¿¡¼­ ¾È¸é»ö ÃßÃâ   
+	Ãø»öÀÇ Á¤È®µµ¸¦ À§ÇØ 2°¡Áö ÇÊÅÍ »ç¿ë, K-means ¹æ½ÄÀ» ÀÌ¿ëÇØ »ö ÃßÃâ   
+- `Color System Converter`   
+	ÃßÃâµÈ »ö ¸®½ºÆ®¸¦ Æò±Õ »öÀ¸·Î ´ëÃ¼ ÇÏ¿© ¾Ë°í¸®Áò Àû¿ëÀ» À§ÇÑ »ö Ã¼°è º¯È¯   
+	(BGR ¡æ RGB ¡æ HSV)   
+- `Type Classifier`   
+	ÆÛ½º³ÎÄÃ·¯ Å¸ÀÔ ºÐ·ù ¾Ë°í¸®ÁòÀ» Àû¿ëÇØ Ãø»ö °á°ú °ª(¾È¸é »ö)À¸·Î µ¥ÀÌÅÍ¼Â »ý¼º   
    
-- `CNN Training`   
-- Result Model : `cai.h5`   
    
+### Deep Learning
+
+#### `< CNN/AlexNet >`   
+<img src="jay/img/cnn-alexnet.jpg" width=100%>   
+   
+`AlexNet` : »ö»óÀÎ ºÎºÐ°ú »ö»óÀÌ ¾Æ´Ñ ºÎºÐÀ¸·Î ³ª´©¾î Ã³¸®µÇ±â ¶§¹®¿¡ '»ö ÇÐ½À'¿¡ ¿ëÀÌÇÏ´Ù°í ÆÇ´ÜÇÏ¿© ¼±Á¤   
+Result model : `CAI.h5`   
+   
+---
    
 ## [ Color Palette Extraction ]
+   
+### Bright Palette & Harmony Palette
 
-### Bright Color & Harmony Color
-    [ ë¶„ì„ í™•ìž¥ ê³¼ì • ì´ë¯¸ì§€ë¡œ ë³´ì—¬ì¤„ ìˆ˜ ìžˆìœ¼ë©´ ì¶”ê°€ ]   
-   
-ìƒ‰ì´ë¡ ìœ¼ë¡œ ë‚˜ì˜¤ëŠ” íŒ”ë ˆíŠ¸ëŠ” ì›ëž˜ í•˜ë‚œë°ìš¤ ì˜ë¬¸ì ì´ ìžˆì–´ì„œ ì•„ëž˜ì²˜ëŸ¼ ë¶„ì„ ã…‡ã…‡   
-ê·¸ëž˜ì„œ ìµœì¢… íŒ”ë ˆíŠ¸ëŠ” ~!@#!@#^%!@#!@ ìž…ë‹ˆë‹¤   
-[* ë¶„ì„íŒŒíŠ¸ ë³´ê³ ì„œ?](url)   
+#### `< Personal color Analysis >`   
+<img src="jay/img/Data-Analysis.jpg" width=100%>   
 
+»ö ÀÌ·Ð°ú ÆÛ½º³ÎÄÃ·¯ °ü·Ã ³í¹®À» Âü°íÇÏ¿© 1Â÷ Ãø»ö ºÎÀ§ & Áø´Ü »ö ¼±Á¤   
+ÆÛ½º³ÎÄÃ·¯ ÀÌ·Ð°ú Ãø»ö ºÎÀ§ & Áø´Ü »öÀÇ ÇÕ¸®¼ºÀ» °ËÁ¤ÇÏ±â À§ÇØ ¼³¹®Á¶»ç ÁøÇà   
+´Ù°¢Àû ºÐ¼®°ú Á¤È®¼ºÀ» À§ÇØ ³×ÀÌ¹ö µ¥ÀÌÅÍ·¦ ÀÌ¿ë, ºÐ¼® È®Àå   
+ºÐ¼® °á°ú¿¡ µû¶ó ÆÛ½º³ÎÄÃ·¯ Å¸ÀÔ ºÐ·ù ±âÁØÀÎ Ãø»ö ºÎÀ§ & Áø´Ü »ö º¯°æ   
+[* Personal color theory analysis report](url)   
+[* Personal color statistical analysis report](url)   
    
-### Main Purchase Clustering Color
-	[ í”„ë¡œì„¸ìŠ¤ ì´ë¯¸ì§€ ]   
    
-- ì‚¬ìš©ìžê°€ ë‹‰ë„¤ìž„ìœ¼ë¡œ ì¡°íšŒí•  ê²½ìš° ë°ì´í„°ë² ì´ìŠ¤ì—ì„œ êµ¬ë§¤ìƒí’ˆì„ ì‹¤ì‹œê°„ìœ¼ë¡œ ì¡°íšŒí•˜ì—¬ êµ¬ë§¤í•œ ìƒí’ˆì—ì„œ **ì—¬ê¸°ì— ë°ì´í„°ë² ì´ìŠ¤ì— ìƒí’ˆ ëŒ€í‘œ ìƒ‰ ì ìž¬í•œê±°ë¥¼ ë„£ì–´ì•¼ í•˜ë‚˜**ìœ¼ë¡œ ì¶”ì¶œí•œ ìƒ‰ ë¦¬ìŠ¤íŠ¸ë¥¼ ë°›ì•„ì˜µë‹ˆë‹¤.   
+### Main purchase Palette
+
+#### `< Data acquisition & Main color Extraction >`
+<img src="jay/img/color-clustering.jpg" width=100%>   
+
+- `Clothes color Extraction`   
+	»óÇ° ÀÌ¹ÌÁö¸¦ `Topwear.h5`(ÆÐ¼Ç¾ÆÀÌÅÛ ºÐ¸® ¸ðµ¨)À» ÀÌ¿ëÇØ ¸¶½ºÅ© »ý¼º   
+	¿øº» ÀÌ¹ÌÁö¿¡ ¸¶½ºÅ©¸¦ °áÇÕÇÏ¿© ÆÐ¼Ç¾ÆÀÌÅÛÀ» Á¦¿ÜÇÑ ÀÌ¹ÌÁö ¿µ¿ª »èÁ¦   
+	K-means ¹æ½ÄÀ» ÀÌ¿ëÇØ »ö ÃßÃâ, »óÇ° º° »ö µ¥ÀÌÅÍ¸¦ µ¥ÀÌÅÍº£ÀÌ½º¿¡ ÀûÀç   
+- `Main color Extraction`   
+	»ç¿ëÀÚÀÇ ±¸¸Å»óÇ°À» ½Ç½Ã°£À¸·Î Á¶È¸, ±¸¸ÅÇÑ »óÇ°ÀÇ »ö ¸®½ºÆ®¸¦ È¹µæ   
+	Gray tone Filter¸¦ ÀÌ¿ëÇØ ¸®½ºÆ® Áß Èæ¹é¿¡ ±ÙÁ¢ÇÑ »óÇ°À» Á¦¿Ü   
+	Å¬·¯½ºÅÍ¸µÀÇ ¿ÀÂ÷¸¦ ÁÙÀ§±â À§ÇØ Color Generator·Î ±¸¸Å»óÇ° »ö»ó ±Ô¸ð È®Àå   
+	È®ÀåµÈ »ö µ¥ÀÌÅÍ¸¦ `Hierarchical Clustering`¸¦ ÀÌ¿ëÇØ ÁÖ¿ä ±¸¸Å »ö»ó ÆÈ·¹Æ®¸¦ ÃßÃâ   
    
-- `Grey tone Filter`ë¥¼ ì´ìš©í•˜ì—¬ ì‚¬ìš©ìžê°€ êµ¬ë§¤í•œ ìƒí’ˆ ì¤‘ì—ì„œ í‘ë°±ì— ê·¼ì ‘í•œ ìƒí’ˆì„ ì œì™¸ì‹œí‚¨ í›„ `Color Generator`ë¡œ í´ëŸ¬ìŠ¤í„°ë§ì˜ ì˜¤ì°¨ë¥¼ ì¤„ìœ„ê¸° ìœ„í•´ êµ¬ë§¤ìƒí’ˆ ìƒ‰ìƒì˜ ê·œëª¨ë¥¼ í™•ìž¥í•©ë‹ˆë‹¤.   
-   
-- ìœ„ ê²°ê³¼ê°’ìœ¼ë¡œ `Color Clustering`ì—ì„œ ê³ ê°ì´ ì£¼ë¡œ êµ¬ë§¤í•œ ìƒí’ˆì˜ ìƒ‰ì„ êµ°ì§‘í™”í•˜ì—¬ ì£¼ìš” êµ¬ë§¤ ìƒ‰ìƒ íŒ”ë ˆíŠ¸ë¥¼ ì¶”ì¶œí•©ë‹ˆë‹¤.
-   
+---
    
 ## [ Webstie ]
-    [ ì›¹ êµ¬í˜„ ì´ë¯¸ì§€ ]   
-   
-### Type Prediction & Matched Palette
-- `Personal Color Type Prediction`ëŠ” ì›¹ì„ í†µí•´ ì‚¬ìš©ìžê°€ ì—…ë¡œë“œí•œ ì‚¬ì§„ì„ ë”¥ëŸ¬ë‹ ëª¨ë¸`cai.h5`ë¥¼ ì ìš©í•˜ì—¬ í¼ìŠ¤ë„ì»¬ëŸ¬ íƒ€ìž…ì„ ì˜ˆì¸¡í•´ ì‚¬ìš©ìžì—ê²Œ ì•ˆë‚´í•©ë‹ˆë‹¤.   
-   
-- `Recommendation Bright&Harmony Color`ëŠ” ì˜ˆì¸¡í•œ í¼ìŠ¤ë„ì»¬ëŸ¬ íƒ€ìž… ê²°ê³¼ì™€ `Skin Color Extraction`ë¡œ ì¶”ì¶œí•œ ì‚¬ìš©ìžì˜ ì–¼êµ´ìƒ‰ì— ë§žëŠ” Bright Color Paletteì™€ Harmony Color Paletteë¥¼ ì¶”ì²œí•©ë‹ˆë‹¤.   
 
-### Fashion Recommendation
-- `Palette Color Matched Product`ì—ì„œ ìµœì¢…ì ìœ¼ë¡œ ì¶”ì¶œëœ 3ê°€ì§€ Color Paletteì— í•´ë‹¹í•˜ëŠ” ìƒí’ˆì„ ë°ì´í„°ë² ì´ìŠ¤ì—ì„œ ì‹¤ì‹œê°„ìœ¼ë¡œ ì¡°íšŒ, ì¶”ì²œí•˜ì—¬ ì‚¬ìš©ìžë³„ ê°œì¸í™” ì„œë¹„ìŠ¤ë¥¼ ì œê³µí•©ë‹ˆë‹¤.
+#### `< Web structure >`
+<img src="jay/img/cai-webpage.jpg" width=100%>   
+
+- `Personal color type Prediction`   
+	À¥À» ÅëÇØ »ç¿ëÀÚ°¡ ¾÷·ÎµåÇÑ »çÁøÀ» **CAI.h5**¸¦ Àû¿ë, ÆÛ½º³ÎÄÃ·¯ Å¸ÀÔÀ» ¿¹ÃøÇØ »ç¿ëÀÚ¿¡°Ô ¾È³»   
+- `Matched Personal color palette`   
+	»ç¿ëÀÚÀÇ Å¸ÀÔ °á°ú¿Í **Skin Color Extraction**·Î ÃßÃâÇÑ ÇÇºÎ»ö¿¡ ´ëÀÀÇÏ´Â °³ÀÎÈ­ ÆÈ·¹Æ®¸¦ Á¦°ø   
+- `Fashion item Recommendation`   
+	ÃßÃâµÈ 3°¡Áö ÆÈ·¹Æ®¿¡ ÇØ´çÇÏ´Â »óÇ°À» µ¥ÀÌÅÍº£ÀÌ½º¿¡¼­ ½Ç½Ã°£À¸·Î Á¶È¸ÇØ ÃßÃµ, »ç¿ëÀÚº° °³ÀÎÈ­ ¼­ºñ½º¸¦ Á¦°ø   
+	¡Ø ÆÈ·¹Æ®1 : **Bright Palette** / ÆÈ·¹Æ®2 : **Harmony Palette** / ÆÈ·¹Æ®3 : **Main purchase Palette**   
