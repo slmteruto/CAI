@@ -44,7 +44,7 @@ class ColorPalette:
                         h_list.append(self.H+h_warm_plus[i]-359)
 
                 # 봄
-                if diff >= 46.25 :
+                if diff >= 43.15 :
                     for saturation, value, i in zip(s_SpringWinter_plus, v_SpringWinter_plus, range(6)):
                         # Saturation
                         if saturation >= 0:                    
@@ -70,7 +70,7 @@ class ColorPalette:
                                 v_list.append(self.V-v_SpringWinter_plus[i])                    
 
                 # 가을
-                elif diff < 46.25:
+                elif diff < 43.15:
                     for saturation, value, i in zip(s_SummerAutumn_plus, v_SummerAutumn_plus, range(6)):
                         if saturation >= 0:                    
                             if self.S+saturation <= 100:
@@ -104,7 +104,7 @@ class ColorPalette:
                         h_list.append(self.H+h_cool_plus[i]-359)
 
                 # 여름
-                if diff >= 48.75 :
+                if diff >= 47.15 :
                     for saturation, value, i in zip(s_SummerAutumn_plus, v_SummerAutumn_plus, range(6)):
                         if saturation >= 0:                    
                             if self.S+saturation <= 100:
@@ -129,7 +129,7 @@ class ColorPalette:
                                 v_list.append(self.V-v_SummerAutumn_plus[i])
 
                 # 겨울
-                elif diff < 48.75:
+                elif diff < 47.15:
                     for saturation, value, i in zip(s_SpringWinter_plus, v_SpringWinter_plus, range(6)):
                         # Saturation
                         if saturation >= 0:                    
@@ -204,7 +204,7 @@ class ColorPalette:
                         h_list.append(self.H+h_warm_plus[i]-359)
 
                 # 봄
-                if diff >= 46.25 :
+                if diff >= 43.15 :
                     for saturation, value, i in zip(s_SpringWinter_plus, v_SpringWinter_plus, range(6)):
                         # Saturation
                         if saturation >= 0:                    
@@ -230,7 +230,7 @@ class ColorPalette:
                                 v_list.append(self.V-v_SpringWinter_plus[i])                    
 
                 # 가을
-                elif diff < 46.25:
+                elif diff < 43.15:
                     for saturation, value, i in zip(s_SummerAutumn_plus, v_SummerAutumn_plus, range(6)):
                         if saturation >= 0:                    
                             if self.S+saturation <= 100:
@@ -264,7 +264,7 @@ class ColorPalette:
                         h_list.append(self.H+h_cool_plus[i]-359)
 
                 # 여름
-                if diff >= 48.75 :
+                if diff >= 47.15 :
                     for saturation, value, i in zip(s_SummerAutumn_plus, v_SummerAutumn_plus, range(6)):
                         if saturation >= 0:                    
                             if self.S+saturation <= 100:
@@ -289,7 +289,7 @@ class ColorPalette:
                                 v_list.append(self.V-v_SummerAutumn_plus[i])
 
                 # 겨울
-                elif diff < 48.75:
+                elif diff < 47.15:
                     for saturation, value, i in zip(s_SpringWinter_plus, v_SpringWinter_plus, range(6)):
                         # Saturation
                         if saturation >= 0:                    
