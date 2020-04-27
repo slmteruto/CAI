@@ -60,8 +60,8 @@ Result model : `CAI.h5`
 퍼스널컬러 이론과 측색 부위 & 진단 색의 합리성을 검정하기 위해 설문조사 진행   
 다각적 분석과 정확성을 위해 네이버 데이터랩 이용, 분석 확장   
 분석 결과에 따라 퍼스널컬러 타입 분류 기준인 측색 부위 & 진단 색 변경   
-[* Personal color theory analysis report](url)   
-[* Personal color statistical analysis report](url)   
+[* Personal color theory analysis report](https://github.com/slmteruto/CAI/blob/master/jay/Report/Color_theory_analysis.ipynb)   
+[* Personal color statistical analysis report](https://github.com/slmteruto/CAI/blob/master/cys/PersonalColor%20Analysis%20Report.pptx)   
    
    
 ### Main purchase Palette
@@ -93,3 +93,4 @@ Result model : `CAI.h5`
 - `Fashion item Recommendation`   
 	추출된 3가지 팔레트에 해당하는 상품을 데이터베이스에서 실시간으로 조회해 추천, 사용자별 개인화 서비스를 제공   
 	※ 팔레트1 : **Bright Palette** / 팔레트2 : **Harmony Palette** / 팔레트3 : **Main purchase Palette**   
+[* Clustering accuracy evaluation report](https://github.com/slmteruto/CAI/blob/master/jay/Report/Clustering_Evaluation.ipynb)   
